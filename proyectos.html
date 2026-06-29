@@ -4,968 +4,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description"
-content="Conocé los proyectos realizados por Grupo Boto en climatización integral, HVAC, sistemas VRV, cámaras de frío, ventilación y presurización para hoteles, hospitales, universidades y desarrollos inmobiliarios.">
+    <meta name="description"
+        content="Conocé los proyectos realizados por Grupo Boto en climatización integral, HVAC, sistemas VRV, cámaras de frío, ventilación y presurización para hoteles, hospitales, universidades y desarrollos inmobiliarios.">
 
-<title>Proyectos de Climatización y HVAC — Grupo Boto</title>
+    <title>Proyectos de Climatización y HVAC — Grupo Boto</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        boto: {
+                            azul: "#1E2B4B",
+                            azulOscuro: "#131B31",
+                            naranja: "#D36145",
+                            champagne: "#C49A6C",
+                            grisFondo: "#F8FAFC",
+                            fondo: "#E8E8E8"
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        titles: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="bg-boto-grisFondo text-slate-700 font-sans antialiased">
 
-    <!-- =====================================================================
-         HEADER
-         ===================================================================== -->
-    <header class="bg-[#1E2B4B] text-white sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" aria-label="Ir al inicio" class="flex items-center gap-3 group">
-                <img src="img/logo-grupo-boto.png" alt="Grupo Boto" class="h-10 object-contain">
-                <p
-                    class="font-extrabold tracking-wider text-lg text-white group-hover:text-[#D36145] transition-colors">
-                    GRUPO BOTO</p>
-            </a>
-            <nav aria-label="Navegación principal"
-                class="hidden md:flex items-center gap-8 text-sm font-bold tracking-wider">
-                <ul class="flex gap-8">
-                    <li><a href="index.html" class="hover:text-[#D36145] transition-colors">HOME</a></li>
-                    <li><a href="servicios.html" class="hover:text-[#D36145] transition-colors">SERVICIOS</a></li>
-                    <li>
-                        <a href="proyectos.html" class="text-[#D36145] transition-colors">
-                            PROYECTOS
-                        </a>
-                    </li>
-                    <li><a href="nosotros.html" class="hover:text-[#D36145] transition-colors">SOBRE NOSOTROS</a></li>
-                    <li><a href="index.html#contacto" class="hover:text-[#D36145] transition-colors">CONTÁCTANOS</a>
-                    </li>
+     <!-- =====================================================================
+             HEADER
+        ===================================================================== -->
+        <header class="bg-boto-azul text-white sticky top-0 z-50 shadow-lg border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                
+                <!-- Logo -->
+                <a href="#" aria-label="Ir al inicio" class="flex items-center gap-4 group">
+                    <img src="img/logo-grupo-boto.png" alt="Grupo Boto" class="h-10 object-contain" />
+                    <div>
+                        <p class="text-[10px] uppercase tracking-[0.35em] text-boto-champagne">
+                            Ingeniería HVAC
+                        </p>
+                        <p class="font-titles font-bold tracking-[0.15em] text-lg group-hover:text-boto-champagne transition uppercase">
+                            GRUPO BOTO
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Menú escritorio -->
+                <nav aria-label="Navegación principal" class="hidden md:flex items-center">
+                    <ul class="flex items-center gap-10 text-[13px] tracking-[0.15em] uppercase font-medium">
+                        <li><a href="index.html" class="hover:text-boto-champagne">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-boto-champagne transition duration-300">Servicios</a></li>
+                        <li><a href="proyectos.html" class="text-boto-champagne transition duration-300">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="hover:text-boto-champagne transition duration-300">Nosotros</a></li>
+                        <li><a href="#contacto" class="hover:text-boto-champagne transition duration-300">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Menú mobile -->
+                <button id="menu-btn" class="md:hidden text-xl" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Desplegable mobile -->
+            <nav id="mobile-menu" class="hidden md:hidden bg-boto-azulOscuro backdrop-blur-lg border-t border-white/10">
+                <ul class="flex flex-col text-center py-3">
+                    <li><a href="index.html" class="block py-4 hover:bg-white/5 transition">Inicio</a></li>
+                    <li><a href="#servicios" class="block py-4 hover:bg-white/5 transition">Servicios</a></li>
+                    <li><a href="proyectos.html" class="block py-4 text-boto-champagne transition">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="block py-4 hover:bg-white/5 transition">Nosotros</a></li>
+                    <li><a href="#contacto" class="block py-4 hover:bg-white/5 transition">Contacto</a></li>
                 </ul>
             </nav>
-            <button id="menu-btn" class="md:hidden text-2xl focus:outline-none cursor-pointer" aria-label="Abrir menú"
-                aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-        <nav id="mobile-menu" aria-label="Navegación móvil"
-            class="hidden md:hidden bg-[#131B31] border-t border-white/10 transition-all duration-300">
-            <ul class="flex flex-col text-center font-bold tracking-wider divide-y divide-white/5 py-2">
-                <li><a href="index.html" class="block py-3 hover:bg-[#1E2B4B] transition-colors">HOME</a></li>
-                <li><a href="servicios.html" class="block py-3 hover:text-[#D36145]">SERVICIOS</a></li>
-                <li>
-                    <a href="proyectos.html" class="text-[#D36145] transition-colors">
-                        PROYECTOS
-                    </a>
-                </li>
-                <li><a href="nosotros.html" class="block py-3 hover:bg-[#1E2B4B] transition-colors">SOBRE NOSOTROS</a>
-                </li>
-                <li><a href="index.html#contacto"
-                        class="block py-3 hover:bg-[#1E2B4B] transition-colors">CONTÁCTANOS</a></li>
-            </ul>
-        </nav>
-    </header>
+        </header>
 
-    <!-- =====================================================================
-     HERO PROYECTOS
-     ===================================================================== -->
 
-    <section class="relative min-h-[45vh] bg-cover bg-center flex items-center justify-center text-center px-4"
-        style="background-image:url('img/banner-proyectos.jpg');">
-
-        <div class="absolute inset-0 bg-[#0d1526]/80"></div>
-
+    <section class="relative min-h-[40vh] bg-cover bg-center flex items-center justify-center text-center px-6" style="background-image:url('img/banner-proyectos.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-r from-boto-azulOscuro/90 to-boto-azul/80"></div>
         <div class="relative z-10 max-w-3xl mx-auto py-16">
-
-            <span class="text-[#D36145] text-xs font-bold tracking-[0.3em]
-                     uppercase border border-[#D36145]/50
-                     px-4 py-2 rounded-full">
-
+            <span class="text-boto-champagne text-[10px] font-bold tracking-[0.35em] uppercase border border-boto-champagne/30 px-4 py-1.5 rounded-full bg-boto-azulOscuro/40 backdrop-blur-sm">
                 Nuestra experiencia
-
             </span>
-
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-5">
-
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white mt-6 font-titles">
                 Proyectos Realizados
-
             </h1>
-
-            <div class="w-14 h-1 bg-[#D36145] mx-auto mt-6 rounded"></div>
-
-            <p class="text-gray-300 mt-6 text-sm md:text-base max-w-xl mx-auto">
-
-                Participamos en proyectos de climatización,
-                ventilación y refrigeración para hoteles,
-                universidades, hospitales y desarrollos inmobiliarios.
-
+            <div class="w-12 h-[3px] rounded bg-boto-champagne mx-auto mt-6"></div>
+            <p class="text-slate-300 mt-6 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+                Participamos en proyectos de climatización, ventilación y refrigeración para hoteles, universidades, hospitales y desarrollos inmobiliarios.
             </p>
-
         </div>
-
     </section>
 
+    <!-- FILTROS (Sticky con efecto Premium de subrayado dinámico) -->
+<div class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-[72px] z-40 shadow-xs overflow-x-auto scrollbar-none">
+    <div class="max-w-5xl mx-auto px-6 flex justify-start md:justify-center gap-8 py-4 text-[11px] font-medium tracking-[0.2em] whitespace-nowrap uppercase">
+        
+        <!-- Residencial -->
+        <a href="#infinity"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Residencial
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
 
-    <!-- =====================================================================
-     FILTROS
-     ===================================================================== -->
-<div class="bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm overflow-x-auto">
-        <div class="max-w-6xl mx-auto px-4 flex gap-1 py-2 text-xs font-bold tracking-wider whitespace-nowrap">
-            <a href="#infinity"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Residencial</a>
-            <a href="#elevage"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Hoteles</a>
-            <a href="#ditella"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Educación</a>
-            <a href="#sarda"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Hospitales</a>
-            <a href="#carne"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Gastronomía</a>
-          </div>
+        <!-- Hoteles -->
+        <a href="#elevage"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Hoteles
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Educación -->
+        <a href="#ditella"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Educación
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Hospitales -->
+        <a href="#sarda"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Hospitales
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Gastronomía -->
+        <a href="#carne"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Gastronomía
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        
     </div>
-   
-
-
-    <main class="max-w-6xl mx-auto px-4 py-20 space-y-24">
-
-
-     <!-- =========================================================
-     PROYECTO INFINITY
-========================================================= -->
-
-<article id="infinity"
-class="flex flex-col md:flex-row gap-10 scroll-mt-40">
-
-   <div class="relative rounded-2xl overflow-hidden shadow-xl">
-
-    <img
-    src="img/proyecto-infinity.png"
-    alt="Proyecto Infinity"
-    class="w-full aspect-[4/5] object-cover">
-
-    <!-- overlay -->
-
-    <div class="absolute inset-0
-    bg-gradient-to-t
-    from-[#0d1526]/60
-    to-transparent">
-    </div>
-
-    <!-- etiqueta proyecto -->
-
-    <div class="absolute top-5 left-5">
-
-        <span class="bg-white/95
-        backdrop-blur-sm
-        text-[#1E2B4B]
-        px-4 py-2
-        rounded-full
-        text-xs
-        font-bold
-        tracking-wider
-        shadow-lg">
-
-        Proyecto Infinity
-
-        </span>
-
-    </div>
-
 </div>
+   
+    <main class="max-w-6xl mx-auto px-6 py-20 space-y-28">
 
+        <article id="infinity" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center scroll-mt-36 group">
+            <div class="md:col-span-5 relative rounded-xl overflow-hidden shadow-md bg-boto-fondo border border-slate-200">
+                <img src="img/proyecto-infinity.png" alt="Proyecto Infinity" class="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-103">
+                <div class="absolute inset-0 bg-gradient-to-t from-boto-azulOscuro/50 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/95 backdrop-blur-sm text-boto-azul px-3 py-1.5 rounded text-[10px] font-bold tracking-widest shadow-sm uppercase border border-slate-100">
+                        Residencial
+                    </span>
+                </div>
+            </div>
+            <div class="md:col-span-7 space-y-6">
+                <div>
+                    <p class="text-boto-champagne font-bold uppercase tracking-[0.2em] text-[10px] mb-2">Proyecto destacado</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-boto-azul tracking-tight font-titles">Proyecto Infinity</h2>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed font-light">
+                        Desarrollo integral de instalaciones HVAC para complejos residenciales a gran escala, incluyendo sistemas avanzados de extracción, inyección de aire, presurización y soluciones térmicas de alta eficiencia energética.
+                    </p>
+                </div>
 
-    <!-- Contenido -->
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h3 class="text-boto-azul font-semibold tracking-wider text-xs uppercase mb-4">Trabajos realizados</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-500 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Presurización de escaleras</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Ventilación mecánica de cocheras</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Preinstalación técnica y canalizaciones</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Sistemas centralizados Multisplit y VRV</span>
+                        </li>
+                    </ul>
+                </div>
 
-    <div class="w-full md:w-3/5 space-y-8">
+                <div class="bg-white rounded-xl p-5 border border-slate-200/60 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-light text-slate-500">
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Tipo:</b> Residencial</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Sistema:</b> HVAC / VRV</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Estado:</b> Finalizado</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Ubicación:</b> Buenos Aires</div>
+                </div>
+            </div>
+        </article>
 
-        <!-- título principal -->
+        
+        <article id="ditella" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center scroll-mt-36 group">
+            <div class="md:col-span-5 md:order-2 relative rounded-xl overflow-hidden shadow-md bg-boto-fondo border border-slate-200">
+                <img src="img/universidad-torcuato-diTella.png" alt="Universidad Torcuato Di Tella" class="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-103">
+                <div class="absolute inset-0 bg-gradient-to-t from-boto-azulOscuro/50 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/95 backdrop-blur-sm text-boto-azul px-3 py-1.5 rounded text-[10px] font-bold tracking-widest shadow-sm uppercase border border-slate-100">
+                        Educación
+                    </span>
+                </div>
+            </div>
+            <div class="md:col-span-7 md:order-1 space-y-6">
+                <div>
+                    <p class="text-boto-champagne font-bold uppercase tracking-[0.2em] text-[10px] mb-2">Proyecto destacado</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-boto-azul tracking-tight font-titles">Universidad Torcuato Di Tella</h2>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed font-light">
+                        Dirección técnica y ejecución de la renovación de la sede central. Se integraron sistemas de climatización de volumen de refrigerante variable (VRF) de última generación, optimizando el confort en aulas y auditorios bajo estrictas normas de aislamiento acústico.
+                    </p>
+                </div>
 
-        <div>
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h3 class="text-boto-azul font-semibold tracking-wider text-xs uppercase mb-4">Trabajos realizados</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-500 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Dirección técnica e ingeniería de obra</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Instalación de sistema VRF Mitsubishi</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Integración arquitectónica patrimonial</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Coordinación interdisciplinaria de rubros</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <p class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-[0.25em]
-            text-xs
-            mb-2">
+                <div class="bg-white rounded-xl p-5 border border-slate-200/60 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-light text-slate-500">
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Tipo:</b> Educativo</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Sistema:</b> VRF Mitsubishi</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Estado:</b> Finalizado</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Ubicación:</b> Buenos Aires</div>
+                </div>
+            </div>
+        </article>
 
-            Proyecto destacado
+        <article id="elevage" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center scroll-mt-36 group">
+            <div class="md:col-span-5 relative rounded-xl overflow-hidden shadow-md bg-boto-fondo border border-slate-200">
+                <img src="img/elevage.png" alt="Hotel Elevage" class="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-103">
+                <div class="absolute inset-0 bg-gradient-to-t from-boto-azulOscuro/50 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/95 backdrop-blur-sm text-boto-azul px-3 py-1.5 rounded text-[10px] font-bold tracking-widest shadow-sm uppercase border border-slate-100">
+                        Hoteles
+                    </span>
+                </div>
+            </div>
+            <div class="md:col-span-7 space-y-6">
+                <div>
+                    <p class="text-boto-champagne font-bold uppercase tracking-[0.2em] text-[10px] mb-2">Proyecto destacado</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-boto-azul tracking-tight font-titles">Hotel Elevage</h2>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed font-light">
+                        Modernización y puesta en valor de los sistemas centrales de agua helada y climatización integral. Implementación de soluciones específicas para áreas comunes, habitaciones y el sector gastronómico, garantizando la máxima estabilidad térmica exigida por la industria hotelera internacional.
+                    </p>
+                </div>
 
-            </p>
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h3 class="text-boto-azul font-semibold tracking-wider text-xs uppercase mb-4">Trabajos realizados</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-500 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Sistemas de agua helada (Chillers)</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Cámaras de frío industriales para cocina</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Climatización de piletas y spas</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Balanceo térmico y puesta en marcha</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <h2 class="text-3xl
-            font-extrabold
-            text-[#1E2B4B]
-            mb-4">
-
-            Proyecto Infinity
-
-            </h2>
-
-            <p class="text-gray-600 leading-relaxed">
-
-                Desarrollo de instalaciones HVAC para edificios
-                incluyendo ventilación, presurización y climatización.
-
-            </p>
-
-        </div>
-
-
-        <!-- trabajos -->
-
-        <div>
-
-            <h3 class="text-[#D36145]
-            font-bold uppercase
-            tracking-widest
-            text-xs mb-4">
-
-            Trabajos realizados
-
-            </h3>
-
-            <ul class="space-y-3 text-sm text-gray-600">
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Presurización de escaleras
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Ventilación de cocheras
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Preinstalación de aire acondicionado
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Sistemas multisplit y VRV
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- datos -->
-
-        <div class="bg-gray-50 rounded-xl p-6">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-
-                <span><b>Tipo:</b> Residencial</span>
-
-                <span><b>Sistema:</b> HVAC</span>
-
-                <span><b>Estado:</b> Finalizado</span>
-
-                <span><b>Ubicación:</b> Buenos Aires</span>
-
+                <div class="bg-white rounded-xl p-5 border border-slate-200/60 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-light text-slate-500">
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Tipo:</b> Hotelero</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Sistema:</b> Agua Helada (Chillers)</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Estado:</b> Finalizado</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Área:</b> Climatización General</div>
+                </div>
+            </div>
+        </article>
+          <!-- =====================================================================
+             PROYECTO DESTACADO: HOTEL ALVEAR PALACE (Foto a la derecha)
+             ===================================================================== -->
+        <article id="alvear" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center scroll-mt-36 group">
+            
+            <!-- Contenedor Imagen (md:order-2 la mueve a la derecha en desktop) -->
+            <div class="md:col-span-5 md:order-2 relative rounded-xl overflow-hidden shadow-md bg-boto-fondo border border-slate-200">
+                <img src="img/alvear-palace.png" alt="Hotel Alvear Palace" class="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-103">
+                <div class="absolute inset-0 bg-gradient-to-t from-boto-azulOscuro/50 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/95 backdrop-blur-sm text-boto-azul px-3 py-1.5 rounded text-[10px] font-bold tracking-widest shadow-sm uppercase border border-slate-100">
+                        Hoteles
+                    </span>
+                </div>
             </div>
 
-        </div>
+            <!-- Contenedor Texto (md:order-1 lo mueve a la izquierda en desktop) -->
+            <div class="md:col-span-7 md:order-1 space-y-6">
+                <div>
+                    <p class="text-boto-champagne font-bold uppercase tracking-[0.2em] text-[10px] mb-2">Proyecto destacado</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-boto-azul tracking-tight font-titles">Hotel Alvear Palace</h2>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed font-light">
+                        Servicio preventivo y correctivo especializado para el sistema central de acondicionamiento de aire de uno de los hoteles patrimoniales más lujosos del país. Optimización térmica de alta precisión en áreas comunes críticas y en el exclusivo salón gastronómico L'Orangerie, garantizando estándares internacionales de confort sin alterar la arquitectura original.
+                    </p>
+                </div>
 
-    </div>
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h3 class="text-boto-azul font-semibold tracking-wider text-xs uppercase mb-4">Trabajos realizados</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-500 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Mantenimiento integral del sistema de climatización</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Acondicionamiento y balanceo en salón L'Orangerie</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Control de humedad y filtrado de precisión</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Intervenciones técnicas bajo resguardo patrimonial</span>
+                        </li>
+                    </ul>
+                </div>
 
-</article>
-
-<hr class="border-gray-200">
-
-
-       <!-- =========================================================
-     UNIVERSIDAD DI TELLA
-========================================================= -->
-
-<article id="ditella"
-class="flex flex-col md:flex-row-reverse gap-10 scroll-mt-40">
-
-    <!-- Imagen -->
-
-    <div class="w-full md:w-2/5">
-
-        <div class="relative rounded-2xl overflow-hidden shadow-xl">
-
-            <img
-            src="img/universidad-torcuato-diTella.png"
-            alt="Universidad Torcuato Di Tella"
-            class="w-full aspect-[4/5] object-cover">
-
-            <!-- overlay -->
-
-            <div class="absolute inset-0
-            bg-gradient-to-t
-            from-[#0d1526]/60
-            to-transparent">
+                <div class="bg-white rounded-xl p-5 border border-slate-200/60 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-light text-slate-500">
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Tipo:</b> Hotelero / Lujo</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Sistema:</b> Central de Precisión</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Estado:</b> Finalizado</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Ubicación:</b> Recoleta, CABA</div>
+                </div>
             </div>
+        </article>
 
-            <!-- etiqueta -->
+       
 
-            <div class="absolute top-5 left-5">
-
-                <span class="bg-white/95
-                backdrop-blur-sm
-                text-[#1E2B4B]
-                px-4 py-2
-                rounded-full
-                text-xs
-                font-bold
-                tracking-wider
-                shadow-lg">
-
-                Universidad Di Tella
-
-                </span>
-
+        <article id="sarda" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center scroll-mt-36 group">
+            <div class="md:col-span-5 relative rounded-xl overflow-hidden shadow-md bg-boto-fondo border border-slate-200">
+                <img src="img/maternidad-sarda.png" alt="Hospital Sardá" class="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-103">
+                <div class="absolute inset-0 bg-gradient-to-t from-boto-azulOscuro/50 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/95 backdrop-blur-sm text-boto-azul px-3 py-1.5 rounded text-[10px] font-bold tracking-widest shadow-sm uppercase border border-slate-100">
+                        Hospitales
+                    </span>
+                </div>
             </div>
+            <div class="md:col-span-7 space-y-6">
+                <div>
+                    <p class="text-boto-champagne font-bold uppercase tracking-[0.2em] text-[10px] mb-2">Proyecto destacado</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-boto-azul tracking-tight font-titles">Maternidad Ramón Sardá</h2>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed font-light">
+                        Instalación y adecuación crítica de infraestructura climática hospitalaria. Implementación de filtrado HEPA absoluto y presiones diferenciales controladas para áreas de esterilización y bioseguridad, cumpliendo con los máximos estándares normativos vigentes de salud.
+                    </p>
+                </div>
 
-        </div>
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h3 class="text-boto-azul font-semibold tracking-wider text-xs uppercase mb-4">Trabajos realizados</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-500 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Unidades enfriadoras de líquido Carrier (Chillers)</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Sistemas de filtrado absoluto y flujo laminar</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Adecuación integral para salas de esterilización</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Validación y certificación de flujos térmicos</span>
+                        </li>
+                    </ul>
+                </div>
 
-    </div>
-
-
-    <!-- Contenido -->
-
-    <div class="w-full md:w-3/5 space-y-8">
-
-        <!-- encabezado -->
-
-        <div>
-
-            <p class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-[0.25em]
-            text-xs
-            mb-2">
-
-            Proyecto destacado
-
-            </p>
-
-            <h2 class="text-3xl
-            font-extrabold
-            text-[#1E2B4B]
-            mb-4">
-
-            Universidad Torcuato Di Tella
-
-            </h2>
-
-            <p class="text-gray-600 leading-relaxed">
-
-                Dirección y ejecución de renovación de sede central
-                mediante la instalación e integración de sistemas
-                VRF Mitsubishi, coordinando la adaptación con
-                infraestructura existente.
-
-            </p>
-
-        </div>
-
-
-        <!-- trabajos realizados -->
-
-        <div>
-
-            <h3 class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-widest
-            text-xs
-            mb-4">
-
-            Trabajos realizados
-
-            </h3>
-
-            <ul class="space-y-3 text-sm text-gray-600">
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Dirección técnica de obra
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Ejecución de sistema VRF Mitsubishi
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Integración con edificio existente
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Coordinación con otros rubros
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- ficha -->
-
-        <div class="bg-gray-50 rounded-xl p-6">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-
-                <span><b>Tipo:</b> Educativo</span>
-
-                <span><b>Sistema:</b> VRF Mitsubishi</span>
-
-                <span><b>Estado:</b> Finalizado</span>
-
-                <span><b>Ubicación:</b> Buenos Aires</span>
-
+                <div class="bg-white rounded-xl p-5 border border-slate-200/60 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-light text-slate-500">
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Tipo:</b> Hospitalario</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Sistema:</b> Agua Helada Carrier</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Estado:</b> Finalizado</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Área:</b> Quirófano / Esterilización</div>
+                </div>
             </div>
-
-        </div>
-
-    </div>
-
-</article>
-
-<hr class="border-gray-200">
-
-   <!-- =========================================================
-     HOTEL ELEVAGE
-========================================================= -->
-
-<article id="elevage"
-class="flex flex-col md:flex-row gap-10 scroll-mt-40">
-
-    <!-- Imagen -->
-
-    <div class="w-full md:w-2/5">
-
-        <div class="relative rounded-2xl overflow-hidden shadow-xl">
-
-            <img
-            src="img/elevage.png"
-            alt="Hotel Elevage"
-            class="w-full aspect-[4/5] object-cover">
-
-            <!-- overlay -->
-
-            <div class="absolute inset-0
-            bg-gradient-to-t
-            from-[#0d1526]/60
-            to-transparent">
+        </article>
+ <article id="carne" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center scroll-mt-36 group">
+            <div class="md:col-span-5 md:order-2 relative rounded-xl overflow-hidden shadow-md bg-boto-fondo border border-slate-200">
+                <img src="img/restaurante-carne.png" alt="Restaurante Carne" class="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-103">
+                <div class="absolute inset-0 bg-gradient-to-t from-boto-azulOscuro/50 via-transparent to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/95 backdrop-blur-sm text-boto-azul px-3 py-1.5 rounded text-[10px] font-bold tracking-widest shadow-sm uppercase border border-slate-100">
+                        Gastronomía
+                    </span>
+                </div>
             </div>
+            <div class="md:col-span-7 md:order-1 space-y-6">
+                <div>
+                    <p class="text-boto-champagne font-bold uppercase tracking-[0.2em] text-[10px] mb-2">Proyecto destacado</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-boto-azul tracking-tight font-titles">Restaurante Carne</h2>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed font-light">
+                        Ingeniería y montaje de sistemas de acondicionamiento de aire y refrigeración comercial de alta performance para locales gastronómicos exigentes. Enfoque prioritario en la renovación de aire de cocina y el confort acústico de los comensales.
+                    </p>
+                </div>
 
-            <!-- etiqueta -->
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h3 class="text-boto-azul font-semibold tracking-wider text-xs uppercase mb-4">Trabajos realizados</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-500 font-light">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Instalación de sistema VRV Trane</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Inyección de aire exterior filtrado</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Cámaras frigoríficas de media y baja temperatura (Danfoss)</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-minus text-boto-champagne mt-2 text-[10px]"></i>
+                            <span>Sistemas de control y monitoreo térmico</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="absolute top-5 left-5">
-
-                <span class="bg-white/95
-                backdrop-blur-sm
-                text-[#1E2B4B]
-                px-4 py-2
-                rounded-full
-                text-xs
-                font-bold
-                tracking-wider
-                shadow-lg">
-
-                Hotel Elevage
-
-                </span>
-
+                <div class="bg-white rounded-xl p-5 border border-slate-200/60 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-light text-slate-500">
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Tipo:</b> Gastronómico</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Sistema:</b> VRV + Refrigeración</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Estado:</b> Finalizado</div>
+                    <div><b class="font-semibold text-boto-azul block mb-0.5">Área:</b> Salón y Producción</div>
+                </div>
             </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- Contenido -->
-
-    <div class="w-full md:w-3/5 space-y-8">
-
-        <!-- encabezado -->
-
-        <div>
-
-            <p class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-[0.25em]
-            text-xs
-            mb-2">
-
-            Proyecto destacado
-
-            </p>
-
-            <h2 class="text-3xl
-            font-extrabold
-            text-[#1E2B4B]
-            mb-4">
-
-            Hotel Elevage
-
-            </h2>
-
-            <p class="text-gray-600 leading-relaxed">
-
-                Instalación y optimización de sistemas de
-                climatización y refrigeración para sectores
-                hoteleros y gastronómicos, garantizando
-                eficiencia operativa, estabilidad térmica
-                y funcionamiento continuo.
-
-            </p>
-
-        </div>
-
-
-        <!-- trabajos realizados -->
-
-        <div>
-
-            <h3 class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-widest
-            text-xs
-            mb-4">
-
-            Trabajos realizados
-
-            </h3>
-
-            <ul class="space-y-3 text-sm text-gray-600">
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Sistemas de agua helada (Chillers)
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Cámaras de frío gastronómicas
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Climatización de piletas
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Ajuste y puesta en marcha de sistemas
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- ficha técnica -->
-
-        <div class="bg-gray-50 rounded-xl p-6">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-
-                <span><b>Tipo:</b> Hotelero</span>
-
-                <span><b>Sistema:</b> Agua helada</span>
-
-                <span><b>Estado:</b> Finalizado</span>
-
-                <span><b>Área:</b> Climatización integral</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</article>
-
-<hr class="border-gray-200">
-<!-- =========================================================
-     RESTAURANTE CARNE
-========================================================= -->
-
-<article id="carne"
-class="flex flex-col md:flex-row-reverse gap-10 scroll-mt-40">
-
-    <!-- Imagen -->
-
-    <div class="w-full md:w-2/5">
-
-        <div class="relative rounded-2xl overflow-hidden shadow-xl">
-
-            <img
-            src="img/restaurante-carne.png"
-            alt="Restaurante Carne"
-            class="w-full aspect-[4/5] object-cover">
-
-            <!-- overlay -->
-
-            <div class="absolute inset-0
-            bg-gradient-to-t
-            from-[#0d1526]/60
-            to-transparent">
-            </div>
-
-            <!-- etiqueta -->
-
-            <div class="absolute top-5 left-5">
-
-                <span class="bg-white/95
-                backdrop-blur-sm
-                text-[#1E2B4B]
-                px-4 py-2
-                rounded-full
-                text-xs
-                font-bold
-                tracking-wider
-                shadow-lg">
-
-                Restaurante Carne
-
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- Contenido -->
-
-    <div class="w-full md:w-3/5 space-y-8">
-
-        <!-- encabezado -->
-
-        <div>
-
-            <p class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-[0.25em]
-            text-xs
-            mb-2">
-
-            Proyecto destacado
-
-            </p>
-
-            <h2 class="text-3xl
-            font-extrabold
-            text-[#1E2B4B]
-            mb-4">
-
-            Restaurante Carne
-
-            </h2>
-
-            <p class="text-gray-600 leading-relaxed">
-
-                Instalación y mantenimiento de sistemas de
-                climatización y refrigeración para espacios
-                gastronómicos, asegurando estabilidad térmica,
-                confort y correcto funcionamiento operativo.
-
-            </p>
-
-        </div>
-
-
-        <!-- trabajos realizados -->
-
-        <div>
-
-            <h3 class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-widest
-            text-xs
-            mb-4">
-
-            Trabajos realizados
-
-            </h3>
-
-            <ul class="space-y-3 text-sm text-gray-600">
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Instalación de sistema VRV Trane
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Mantenimiento preventivo de equipos
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Instalación de cámaras de frío Danfoss
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Verificación y control térmico
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- ficha -->
-
-        <div class="bg-gray-50 rounded-xl p-6">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-
-                <span><b>Tipo:</b> Gastronómico</span>
-
-                <span><b>Sistema:</b> VRV + Frío</span>
-
-                <span><b>Estado:</b> Finalizado</span>
-
-                <span><b>Área:</b> Restaurante</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</article>
-
-<hr class="border-gray-200">
-
-<!-- =========================================================
-     HOSPITAL SARDA
-========================================================= -->
-
-<article id="sarda"
-class="flex flex-col md:flex-row gap-10 scroll-mt-40">
-
-    <!-- Imagen -->
-
-    <div class="w-full md:w-2/5">
-
-        <div class="relative rounded-2xl overflow-hidden shadow-xl">
-
-            <img
-            src="img/maternidad-sarda.png"
-            alt="Hospital Sardá"
-            class="w-full aspect-[4/5] object-cover">
-
-            <!-- overlay -->
-
-            <div class="absolute inset-0
-            bg-gradient-to-t
-            from-[#0d1526]/60
-            to-transparent">
-            </div>
-
-            <!-- etiqueta -->
-
-            <div class="absolute top-5 left-5">
-
-                <span class="bg-white/95
-                backdrop-blur-sm
-                text-[#1E2B4B]
-                px-4 py-2
-                rounded-full
-                text-xs
-                font-bold
-                tracking-wider
-                shadow-lg">
-
-                Materinidad Ramón Sardá
-
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- Contenido -->
-
-    <div class="w-full md:w-3/5 space-y-8">
-
-        <!-- encabezado -->
-
-        <div>
-
-            <p class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-[0.25em]
-            text-xs
-            mb-2">
-
-            Proyecto destacado
-
-            </p>
-
-            <h2 class="text-3xl
-            font-extrabold
-            text-[#1E2B4B]
-            mb-4">
-
-            Maternidad Ramón Sardá
-
-            </h2>
-
-            <p class="text-gray-600 leading-relaxed">
-
-                Instalación y mantenimiento de sistemas de
-                climatización para áreas hospitalarias críticas,
-                garantizando estabilidad térmica, funcionamiento
-                continuo y condiciones controladas para procesos
-                sensibles.
-
-            </p>
-
-        </div>
-
-
-        <!-- trabajos realizados -->
-
-        <div>
-
-            <h3 class="text-[#D36145]
-            font-bold
-            uppercase
-            tracking-widest
-            text-xs
-            mb-4">
-
-            Trabajos realizados
-
-            </h3>
-
-            <ul class="space-y-3 text-sm text-gray-600">
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Máquinas de agua helada Carrier (Chillers)
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Mantenimiento preventivo de equipos
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Adecuación de sistemas para sala de esterilización
-                </li>
-
-                <li class="flex gap-2">
-                    <i class="fa-solid fa-check text-[#D36145] mt-1"></i>
-                    Verificación y control térmico
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- ficha -->
-
-        <div class="bg-gray-50 rounded-xl p-6">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-
-                <span><b>Tipo:</b> Hospitalario</span>
-
-                <span><b>Sistema:</b> Agua helada Carrier</span>
-
-                <span><b>Estado:</b> Finalizado</span>
-
-                <span><b>Área:</b> Sala de esterilización</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</article>
-
-<hr class="border-gray-200">
-
-
+        </article>
+      
 
     </main>
 
-
-
-    <!-- CTA FINAL -->
-
-    <section class="bg-[#1E2B4B] text-white py-16">
-
-        <div class="max-w-2xl mx-auto text-center px-4">
-
-            <h2 class="text-3xl font-extrabold mb-4">
-
+    <!-- =====================================================================
+         CTA FINAL
+         ===================================================================== -->
+    <section class="bg-boto-azulOscuro text-white py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto space-y-5">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight font-titles">
                 ¿Tenés un proyecto en mente?
-
             </h2>
-
-            <p class="text-gray-300 mb-8">
-
-                Desarrollamos soluciones integrales de climatización,
-                ventilación y refrigeración.
-
+            <p class="text-gray-300 text-sm md:text-base font-light max-w-lg mx-auto leading-relaxed">
+                Desarrollamos soluciones integrales de climatización, ventilación y refrigeración de alta ingeniería.
             </p>
-
-            <a href="index.html#contacto" class="inline-block bg-[#D36145]
-hover:bg-[#b65138]
-px-8 py-4 rounded-lg
-font-bold uppercase text-sm">
-
+            <a href="index.html#contacto"
+                class="inline-block border-2 border-boto-champagne text-boto-champagne hover:bg-boto-champagne hover:text-boto-azulOscuro font-bold px-10 py-3.5 rounded-none text-[13px] tracking-widest uppercase transition-all duration-300">
+                <i class="fa-solid fa-paper-plane mr-2" aria-hidden="true"></i>
                 Solicitar presupuesto
-
             </a>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================================
-         FOOTER
-         ===================================================================== -->
-    <footer class="bg-[#131B31] text-gray-400 text-center text-xs py-4">
+    <footer class="bg-boto-azulOscuro text-slate-500 text-center text-[11px] font-light py-6 border-t border-white/5 tracking-wide">
         &copy; <span id="year"></span> Grupo Boto — Todos los derechos reservados.
     </footer>
 
-    <!-- WHATSAPP -->
     <a href="https://wa.me/5491150075234" target="_blank" rel="noopener noreferrer"
-        class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 group"
+        class="fixed bottom-6 right-6 bg-[#25D366] text-white p-3.5 rounded-full shadow-xl z-50 flex items-center justify-center hover:bg-[#20ba5a] hover:scale-105 active:scale-95 transition-all duration-300 group"
         aria-label="Chatear por WhatsApp">
-        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
-        <span
-            class="absolute right-16 bg-white text-gray-800 text-xs font-bold px-3 py-1.5 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-gray-100">
+        <i class="fa-brands fa-whatsapp text-2xl" aria-hidden="true"></i>
+        <span class="absolute right-14 bg-boto-azul text-white text-[11px] font-medium px-3 py-1.5 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-white/10 tracking-wide">
             ¿Necesitás un presupuesto?
         </span>
     </a>
 
     <script src="script.js"></script>
     <script>
+        // Año automático en footer
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Control simple para el menú mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 
 </body>
-
 </html>

@@ -1,252 +1,272 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conocé la historia y trayectoria de Grupo Boto, más de 30 años de experiencia en climatización integral para proyectos residenciales, comerciales e industriales.">
-    <title>Sobre Nosotros — Grupo Boto</title>
-    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros | Grupo Boto</title>
+<meta
+name="description"
+content="Conocé Grupo Boto, empresa especializada en climatización, HVAC, ventilación y refrigeración con más de 30 años de experiencia."
+>
+ <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    
+<!-- Fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+<!-- Font Awesome -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Boxicons -->
+<link
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                boto: {
+                    azul: "#1E2B4B",
+                    azulOscuro: "#131B31",
+                    naranja: "#D36145",
+                    champagne: "#C49A6C",
+                    grisFondo: "#F8FAFC",
+                    fondo: "#E8E8E8"
+                }
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                titles: ['Inter', 'sans-serif']
+            }
+        }
+    }
+}
+</script>
 </head>
+<body class="font-sans bg-white text-gray-800 antialiased">
 
-<body class="bg-gray-50 text-gray-800 antialiased">
+<!-- =====================================================================
+     HEADER
+     ===================================================================== -->
+<header class="bg-boto-azul text-white sticky top-0 z-50 shadow-lg border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
-    <!-- =====================================================================
-         HEADER
-         ===================================================================== -->
-    <header class="bg-[#1E2B4B] text-white sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" aria-label="Ir al inicio" class="flex items-center gap-3 group">
-                <img src="img/logo-grupo-boto.png" alt="Grupo Boto" class="h-10 object-contain">
-                <p class="font-extrabold tracking-wider text-lg text-white group-hover:text-[#D36145] transition-colors">GRUPO BOTO</p>
-            </a>
-            <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-8 text-sm font-bold tracking-wider">
-                <ul class="flex gap-8">
-                    <li><a href="index.html"          class="hover:text-[#D36145] transition-colors">HOME</a></li>
-                    <li><a href="servicios.html"       class="hover:text-[#D36145] transition-colors">SERVICIOS</a></li>
-                    <li><a href="nosotros.html"        class="text-[#D36145] transition-colors">SOBRE NOSOTROS</a></li>
-                    <li><a href="index.html#contacto"  class="hover:text-[#D36145] transition-colors">CONTÁCTANOS</a></li>
-                </ul>
-            </nav>
-            <button id="menu-btn" class="md:hidden text-2xl focus:outline-none cursor-pointer"
-                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-        <nav id="mobile-menu" aria-label="Navegación móvil"
-             class="hidden md:hidden bg-[#131B31] border-t border-white/10 transition-all duration-300">
-            <ul class="flex flex-col text-center font-bold tracking-wider divide-y divide-white/5 py-2">
-                <li><a href="index.html"         class="block py-3 hover:bg-[#1E2B4B] transition-colors">HOME</a></li>
-                <li><a href="servicios.html"      class="block py-3 hover:bg-[#1E2B4B] transition-colors">SERVICIOS</a></li>
-                 <li>
-                    <a href="proyectos.html" class="text-[#D36145] transition-colors">
-                        PROYECTOS
-                    </a>
-                </li>
-                <li><a href="nosotros.html"       class="block py-3 text-[#D36145]">SOBRE NOSOTROS</a></li>
-                <li><a href="index.html#contacto" class="block py-3 hover:bg-[#1E2B4B] transition-colors">CONTÁCTANOS</a></li>
+        <!-- Logo -->
+        <a href="index.html" aria-label="Ir al inicio" class="flex items-center gap-4 group">
+            <img src="img/logo-grupo-boto.png" alt="Grupo Boto" class="h-10 object-contain" />
+            <div>
+                <p class="text-[10px] uppercase tracking-[0.35em] text-boto-champagne">
+                    Ingeniería HVAC
+                </p>
+                <p class="font-bold tracking-[0.15em] text-lg group-hover:text-boto-champagne transition uppercase">
+                    GRUPO BOTO
+                </p>
+            </div>
+        </a>
+
+        <!-- Menú escritorio -->
+        <nav aria-label="Navegación principal" class="hidden md:flex items-center">
+            <ul class="flex items-center gap-10 text-[13px] tracking-[0.15em] uppercase font-medium">
+                <li><a href="index.html" class="hover:text-boto-champagne transition duration-300">Inicio</a></li>
+                <li><a href="servicios.html" class="hover:text-boto-champagne transition duration-300">Servicios</a></li>
+                <li><a href="index.html#proyectos" class="hover:text-boto-champagne transition duration-300">Proyectos</a></li>
+                <li><a href="nosotros.html" class="text-boto-champagne">Nosotros</a></li>
+                <li><a href="index.html#contacto" class="hover:text-boto-champagne transition duration-300">Contacto</a></li>
             </ul>
         </nav>
-    </header>
 
+        <!-- Menú mobile -->
+        <button id="menu-btn" class="md:hidden text-xl" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Desplegable mobile -->
+    <nav id="mobile-menu" class="hidden md:hidden bg-boto-azulOscuro border-t border-white/10">
+        <ul class="flex flex-col text-center py-3 text-[13px] tracking-[0.1em] uppercase">
+            <li><a href="index.html" class="block py-4 hover:bg-white/5 transition">Inicio</a></li>
+            <li><a href="servicios.html" class="block py-4 hover:bg-white/5 transition">Servicios</a></li>
+            <li><a href="index.html#proyectos" class="block py-4 hover:bg-white/5 transition">Proyectos</a></li>
+            <li><a href="nosotros.html" class="block py-4 text-boto-champagne">Nosotros</a></li>
+            <li><a href="index.html#contacto" class="block py-4 hover:bg-white/5 transition">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<main>
 
     <!-- =====================================================================
          HERO DE PÁGINA
-         Imagen: img/banner-nosotros.jpg — reemplazá por una foto del equipo o instalación.
-         Si no tenés una específica, podés usar img/sobre-nosotros.jpg o img/banner.jpg.
          ===================================================================== -->
-    <section class="relative min-h-[45vh] bg-cover bg-center flex items-center justify-center text-center px-4"
-             style="background-image: url('img/banner-nosotros.jpg');">
+    <section class="relative min-h-[45vh] bg-cover bg-center flex items-center justify-center text-center px-4 py-10"
+        style="background-image: url('img/banner-nosotros.jpg');">
 
-        <!-- Overlay oscuro -->
-        <div class="absolute inset-0 bg-[#0d1526]/78"></div>
+        <div class="absolute inset-0 bg-boto-azulOscuro/65"></div>
 
         <div class="relative z-10 max-w-3xl mx-auto py-16 flex flex-col items-center gap-4">
-            <span class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase border border-[#D36145]/50 px-4 py-1.5 rounded-full">
+            <span class="text-boto-champagne text-xs font-semibold tracking-[0.25em] uppercase border border-boto-champagne/40 px-4 py-1.5 rounded-full">
                 Quiénes somos
             </span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+
+            <h1 class="text-3xl md:text-5xl font-bold text-white tracking-wide leading-tight">
                 Sobre Nosotros
             </h1>
-            <div class="w-12 h-1 bg-[#D36145] rounded" aria-hidden="true"></div>
-            <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xl">
+
+            <div class="w-12 h-[3px] bg-boto-champagne rounded" aria-hidden="true"></div>
+
+            <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xl font-light">
                 Más de 30 años transformando proyectos en espacios confortables, eficientes y seguros.
-            </p>
-            <!-- Breadcrumb -->
-            <p class="text-gray-400 text-xs mt-2">
-                <a href="index.html" class="hover:text-white transition-colors">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-white">Sobre Nosotros</span>
             </p>
         </div>
     </section>
 
 
-    <!-- =====================================================================
-         NÚMEROS / STATS
-         ===================================================================== -->
-    <div class="bg-[#D36145] text-white">
-        <div class="max-w-5xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold">+30</p>
-                <p class="text-xs md:text-sm font-medium mt-1 text-white/80 uppercase tracking-wide">Años de experiencia</p>
+  <div class="bg-boto-azulOscuro border-b border-white/5">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 md:divide-x divide-white/10 text-center">
+            
+            <div class="py-8 px-4 border-b border-r border-white/10 md:border-0">
+                <p class="text-3xl md:text-4xl font-light text-boto-champagne font-titles tracking-tight">+30</p>
+                <p class="text-[9px] md:text-[10px] font-medium mt-2 text-slate-400 uppercase tracking-[0.2em]">Años de trayectoria</p>
             </div>
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold">+100</p>
-                <p class="text-xs md:text-sm font-medium mt-1 text-white/80 uppercase tracking-wide">Proyectos ejecutados</p>
+            
+            <div class="py-8 px-4 border-b border-white/10 md:border-0">
+                <p class="text-3xl md:text-4xl font-light text-boto-champagne font-titles tracking-tight">+100</p>
+                <p class="text-[9px] md:text-[10px] font-medium mt-2 text-slate-400 uppercase tracking-[0.2em]">Proyectos ejecutados</p>
             </div>
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold">6</p>
-                <p class="text-xs md:text-sm font-medium mt-1 text-white/80 uppercase tracking-wide">Especialidades</p>
+            
+            <div class="py-8 px-4 border-r border-white/10 md:border-0">
+                <p class="text-3xl md:text-4xl font-light text-boto-champagne font-titles tracking-tight">6</p>
+                <p class="text-[9px] md:text-[10px] font-medium mt-2 text-slate-400 uppercase tracking-[0.2em]">Especialidades</p>
             </div>
-            <div>
-                <p class="text-3xl md:text-4xl font-extrabold">100%</p>
-                <p class="text-xs md:text-sm font-medium mt-1 text-white/80 uppercase tracking-wide">Compromiso técnico</p>
+            
+            <div class="py-8 px-4 md:border-0">
+                <p class="text-3xl md:text-4xl font-normal text-white font-titles tracking-tight">100%</p>
+                <p class="text-[9px] md:text-[10px] font-medium mt-2 text-boto-champagne uppercase tracking-[0.2em]">Compromiso técnico</p>
             </div>
+
         </div>
     </div>
 
 
-    <!-- =====================================================================
-         QUIÉNES SOMOS — TEXTO PRINCIPAL
+  <!-- =====================================================================
+         QUIÉNES SOMOS — TEXTO PRINCIPAL (Optimizado para Mobile)
          ===================================================================== -->
-    <section class="py-16 px-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section class="py-16 md:py-24 px-6 md:px-24 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-24">
 
-        <div class="w-full md:w-1/2">
+        <!-- Contenedor Imagen -->
+        <div class="w-full md:w-1/2 overflow-hidden">
             <img src="img/equipo-trabajo.jpg"
                  alt="Equipo de Grupo Boto en una instalación"
                  loading="lazy"
-                 class="w-full h-auto rounded-2xl shadow-xl object-cover">
+                 class="w-full h-auto rounded-none border border-boto-azulOscuro/10 object-cover aspect-video md:aspect-auto">
         </div>
 
-        <div class="w-full md:w-1/2 space-y-5">
-            <p class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase">Nuestra historia</p>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E2B4B] leading-tight">
+        <!-- Contenedor Texto -->
+        <div class="w-full md:w-1/2 space-y-4 md:space-y-5">
+            <span class="text-[10px] md:text-xs uppercase tracking-[0.22em] font-bold text-boto-champagne mb-1 inline-block">
+                Nuestra historia
+            </span>
+            <h2 class="text-2xl md:text-4xl font-bold text-boto-azulOscuro leading-tight tracking-wide">
                 Experiencia, compromiso y soluciones pensadas para el futuro.
             </h2>
-            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                Con más de 30 años de experiencia en el sector de la climatización, en Grupo Boto combinamos conocimiento técnico, compromiso y una visión integral de cada proyecto.
-            </p>
-            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                Nacimos con la convicción de que la climatización es mucho más que equipamiento: es confort, eficiencia y bienestar para las personas que habitan cada espacio. Por eso desarrollamos soluciones adaptadas a las necesidades específicas de cada cliente, acompañando cada etapa del proyecto, desde el diseño hasta la puesta en marcha y el mantenimiento.
-            </p>
-            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                A lo largo de nuestra trayectoria hemos participado en proyectos de diversa complejidad, incluyendo edificios residenciales, hospitales, hoteles, establecimientos gastronómicos, industrias y espacios corporativos.
-            </p>
-        </div>
-    </section>
-
- <!-- =====================================================================
-         VALORES
-         ===================================================================== -->
-    <section class="bg-gray-100 py-16 px-4">
-        <div class="max-w-5xl mx-auto text-center">
-            <p class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase mb-2">Lo que nos define</p>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E2B4B] mb-12">Nuestros valores</h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-[#1E2B4B] flex items-center justify-center">
-                        <i class="fa-solid fa-star text-[#D36145] text-2xl" aria-hidden="true"></i>
-                    </div>
-                    <h3 class="font-extrabold text-[#1E2B4B] text-lg uppercase tracking-wide">Calidad</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        Cada instalación es ejecutada con los más altos estándares técnicos, usando equipos y materiales de primera línea.
-                    </p>
-                </div>
-
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-[#1E2B4B] flex items-center justify-center">
-                        <i class="fa-solid fa-handshake text-[#D36145] text-2xl" aria-hidden="true"></i>
-                    </div>
-                    <h3 class="font-extrabold text-[#1E2B4B] text-lg uppercase tracking-wide">Compromiso</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        Nos involucramos en cada proyecto como si fuera propio, cumpliendo plazos y respondiendo en cada etapa.
-                    </p>
-                </div>
-
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-[#1E2B4B] flex items-center justify-center">
-                        <i class="fa-solid fa-lightbulb text-[#D36145] text-2xl" aria-hidden="true"></i>
-                    </div>
-                    <h3 class="font-extrabold text-[#1E2B4B] text-lg uppercase tracking-wide">Innovación</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        Aplicamos tecnología de punta y nos actualizamos constantemente para ofrecer soluciones eficientes y duraderas.
-                    </p>
-                </div>
-
+            <div class="w-12 md:w-16 h-[2px] bg-boto-champagne"></div>
+            
+            <div class="space-y-4 text-gray-600 text-xs md:text-base leading-relaxed font-light">
+                <p>
+                    Con más de 30 años de experiencia en el sector de la climatización, en Grupo Boto combinamos conocimiento técnico, compromiso y una visión integral de cada proyecto.
+                </p>
+                <p>
+                    Nacimos con la convicción de que la climatización es mucho más que equipamiento: es confort, eficiencia y bienestar para las personas que habitan cada espacio. Por eso desarrollamos soluciones adaptadas a las necesidades específicas de cada cliente, acompañando cada etapa del proyecto, desde el diseño hasta la puesta en marcha y el mantenimiento.
+                </p>
+                <!-- Opcional: Ocultamos el último párrafo en mobile para agilizar el scroll, aparece en tablets/desktop -->
+                <p class="hidden sm:block">
+                    A lo largo de nuestra trayectoria hemos participado en proyectos de diversa complejidad, incluyendo edificios residenciales, hospitales, hoteles, establecimientos gastronómicos, industrias y espacios corporativos.
+                </p>
             </div>
         </div>
     </section>
+
     <!-- =====================================================================
          TRAYECTORIA / TIMELINE
          ===================================================================== -->
-    <section class="bg-[#1E2B4B] text-white py-16 px-4">
+    <section class="bg-boto-azulOscuro text-white py-24 px-6">
         <div class="max-w-4xl mx-auto">
-            <p class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase text-center mb-2">Nuestro recorrido</p>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-12">Trayectoria</h2>
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.22em] font-bold text-boto-champagne mb-2 inline-block">
+                    Nuestro recorrido
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-wide">Trayectoria</h2>
+                <div class="w-16 h-[2px] bg-boto-champagne mx-auto mt-5"></div>
+            </div>
 
             <!-- Timeline vertical -->
-            <div class="relative border-l-2 border-[#D36145]/30 ml-4 md:ml-8 space-y-10">
+            <div class="relative border-l border-boto-champagne/25 ml-4 md:ml-8 space-y-12">
 
                 <!-- Hito 1 -->
                 <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#D36145] border-4 border-[#1E2B4B]"></div>
-                    <p class="text-[#D36145] text-xs font-bold uppercase tracking-widest mb-1">1996 — 2003</p>
-                    <h3 class="text-white font-bold text-base md:text-lg mb-1">Trane Argentina</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <div class="absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-boto-champagne"></div>
+                    <p class="text-boto-champagne text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5">1996 — 2003</p>
+                    <h3 class="text-white font-semibold text-lg mb-2">Trane Argentina</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Nuestro fundador desarrolló su carrera en Trane Argentina, compañía líder a nivel mundial en sistemas de climatización, participando en empresas y obras de alto nivel.
                     </p>
                 </div>
 
                 <!-- Hito 2 -->
                 <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#D36145] border-4 border-[#1E2B4B]"></div>
-                    <p class="text-[#D36145] text-xs font-bold uppercase tracking-widest mb-1">Etapa siguiente</p>
-                    <h3 class="text-white font-bold text-base md:text-lg mb-1">Hotel Alvear Palace</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <div class="absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-boto-champagne"></div>
+                    <p class="text-boto-champagne text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5">Etapa siguiente</p>
+                    <h3 class="text-white font-semibold text-lg mb-2">Hotel Alvear Palace</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
                         A cargo del mantenimiento del sistema de aire acondicionado del Hotel Alvear Palace y su restaurante L'Orangerie, uno de los establecimientos más emblemáticos del país.
                     </p>
                 </div>
 
                 <!-- Hito 3 -->
                 <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#D36145] border-4 border-[#1E2B4B]"></div>
-                    <p class="text-[#D36145] text-xs font-bold uppercase tracking-widest mb-1">Desde 2014</p>
-                    <h3 class="text-white font-bold text-base md:text-lg mb-1">Grupo Infinity</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <div class="absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-boto-champagne"></div>
+                    <p class="text-boto-champagne text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5">Desde 2014</p>
+                    <h3 class="text-white font-semibold text-lg mb-2">Grupo Infinity</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Trabajo conjunto en desarrollos inmobiliarios, ejecutando sistemas de ventilación, presurización de escaleras y preinstalaciones de aire acondicionado en edificios en construcción.
                     </p>
                 </div>
 
                 <!-- Hito 4 -->
                 <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#D36145] border-4 border-[#1E2B4B]"></div>
-                    <p class="text-[#D36145] text-xs font-bold uppercase tracking-widest mb-1">Gastronomía</p>
-                    <h3 class="text-white font-bold text-base md:text-lg mb-1">Carne & Panadería Pablo Mazzei</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <div class="absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-boto-champagne"></div>
+                    <p class="text-boto-champagne text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5">Gastronomía</p>
+                    <h3 class="text-white font-semibold text-lg mb-2">Carne & Panadería Pablo Mazzei</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Participación en proyectos gastronómicos de renombre, con instalación de cámaras frigoríficas y sistemas de climatización comercial.
                     </p>
                 </div>
 
                 <!-- Hito 5 -->
                 <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#D36145] border-4 border-[#1E2B4B]"></div>
-                    <p class="text-[#D36145] text-xs font-bold uppercase tracking-widest mb-1">Salud</p>
-                    <h3 class="text-white font-bold text-base md:text-lg mb-1">Climatización Sanitaria</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <div class="absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-boto-champagne"></div>
+                    <p class="text-boto-champagne text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5">Salud</p>
+                    <h3 class="text-white font-semibold text-lg mb-2">Climatización Sanitaria</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Desarrollo de salas de preservación y sistemas de climatización bajo normativas sanitarias en el ámbito de la salud.
                     </p>
                 </div>
 
                 <!-- Hito 6 -->
                 <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#D36145] border-4 border-[#1E2B4B]"></div>
-                    <p class="text-[#D36145] text-xs font-bold uppercase tracking-widest mb-1">Educación</p>
-                    <h3 class="text-white font-bold text-base md:text-lg mb-1">Universidad Torcuato Di Tella</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <div class="absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-boto-champagne"></div>
+                    <p class="text-boto-champagne text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5">Educación</p>
+                    <h3 class="text-white font-semibold text-lg mb-2">Universidad Torcuato Di Tella</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Invitados por Iterm SRL a participar en la dirección y ejecución de la obra de la Universidad Di Tella, uno de los proyectos más destacados de nuestra trayectoria.
                     </p>
                 </div>
@@ -259,117 +279,179 @@
     <!-- =====================================================================
          ESPECIALIZACIÓN TÉCNICA
          ===================================================================== -->
-    <section class="py-16 px-4 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <p class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase mb-2">En qué somos expertos</p>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E2B4B]">Nuestra especialización</h2>
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-[0.22em] font-bold text-boto-champagne mb-2 inline-block">
+                En qué somos expertos
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-boto-azulOscuro tracking-wide">Nuestra especialización</h2>
+            <div class="w-16 h-[2px] bg-boto-champagne mx-auto mt-5"></div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl bg-[#1E2B4B]/8 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-snowflake text-[#1E2B4B] text-xl" aria-hidden="true"></i>
+            <div class="flex flex-col items-start p-8 border border-gray-100 bg-white hover:border-boto-champagne/50 transition-colors duration-300 group">
+                <div class="text-2xl text-boto-azulOscuro/50 group-hover:text-boto-azulOscuro transition-colors duration-300 mb-5">
+                    <i class="fa-solid fa-snowflake"></i>
                 </div>
-                <h3 class="font-bold text-[#1E2B4B] mb-2">Sistemas VRV / VRF</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Alta eficiencia energética para proyectos de mediana y gran escala.</p>
+                <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-wide mb-2">Sistemas VRV / VRF</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Alta eficiencia energética para proyectos de mediana y gran escala.</p>
             </div>
 
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl bg-[#1E2B4B]/8 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-fan text-[#1E2B4B] text-xl" aria-hidden="true"></i>
+            <div class="flex flex-col items-start p-8 border border-gray-100 bg-white hover:border-boto-champagne/50 transition-colors duration-300 group">
+                <div class="text-2xl text-boto-azulOscuro/50 group-hover:text-boto-azulOscuro transition-colors duration-300 mb-5">
+                    <i class="fa-solid fa-fan"></i>
                 </div>
-                <h3 class="font-bold text-[#1E2B4B] mb-2">Ventilación mecánica</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Diseño e instalación de sistemas de renovación y extracción de aire.</p>
+                <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-wide mb-2">Ventilación Mecánica</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Diseño e instalación de sistemas de renovación y extracción de aire.</p>
             </div>
 
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl bg-[#1E2B4B]/8 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-shield-halved text-[#1E2B4B] text-xl" aria-hidden="true"></i>
+            <div class="flex flex-col items-start p-8 border border-gray-100 bg-white hover:border-boto-champagne/50 transition-colors duration-300 group">
+                <div class="text-2xl text-boto-azulOscuro/50 group-hover:text-boto-azulOscuro transition-colors duration-300 mb-5">
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <h3 class="font-bold text-[#1E2B4B] mb-2">Presurización de escaleras</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Cumplimiento de normativas de seguridad en edificios y desarrollos.</p>
+                <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-wide mb-2">Presurización de Escaleras</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Cumplimiento de normativas de seguridad en edificios y desarrollos.</p>
             </div>
 
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl bg-[#1E2B4B]/8 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-temperature-low text-[#1E2B4B] text-xl" aria-hidden="true"></i>
+            <div class="flex flex-col items-start p-8 border border-gray-100 bg-white hover:border-boto-champagne/50 transition-colors duration-300 group">
+                <div class="text-2xl text-boto-azulOscuro/50 group-hover:text-boto-azulOscuro transition-colors duration-300 mb-5">
+                    <i class="fa-solid fa-temperature-low"></i>
                 </div>
-                <h3 class="font-bold text-[#1E2B4B] mb-2">Áreas críticas</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Climatización bajo normativas sanitarias para salud y gastronomía.</p>
+                <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-wide mb-2">Áreas Críticas</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Climatización bajo normativas sanitarias para salud y gastronomía.</p>
             </div>
 
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl bg-[#1E2B4B]/8 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-screwdriver-wrench text-[#1E2B4B] text-xl" aria-hidden="true"></i>
+            <div class="flex flex-col items-start p-8 border border-gray-100 bg-white hover:border-boto-champagne/50 transition-colors duration-300 group">
+                <div class="text-2xl text-boto-azulOscuro/50 group-hover:text-boto-azulOscuro transition-colors duration-300 mb-5">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
                 </div>
-                <h3 class="font-bold text-[#1E2B4B] mb-2">Mantenimiento especializado</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Servicio preventivo y correctivo para garantizar la vida útil de los equipos.</p>
+                <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-wide mb-2">Mantenimiento Especializado</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Servicio preventivo y correctivo para garantizar la vida útil de los equipos.</p>
             </div>
 
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl bg-[#1E2B4B]/8 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-building text-[#1E2B4B] text-xl" aria-hidden="true"></i>
+            <div class="flex flex-col items-start p-8 border border-gray-100 bg-white hover:border-boto-champagne/50 transition-colors duration-300 group">
+                <div class="text-2xl text-boto-azulOscuro/50 group-hover:text-boto-azulOscuro transition-colors duration-300 mb-5">
+                    <i class="fa-solid fa-building"></i>
                 </div>
-                <h3 class="font-bold text-[#1E2B4B] mb-2">Proyectos integrales</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Coordinación completa desde el diseño hasta la puesta en marcha.</p>
+                <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-wide mb-2">Proyectos Integrales</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Coordinación completa desde el diseño hasta la puesta en marcha.</p>
             </div>
 
         </div>
     </section>
 
 
-   
+    <!-- =====================================================================
+         VALORES
+         ===================================================================== -->
+    <section class="bg-boto-grisFondo py-24 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-xs uppercase tracking-[0.22em] font-bold text-boto-champagne mb-2 inline-block">
+                Lo que nos define
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-boto-azulOscuro tracking-wide mb-16">Nuestros valores</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
+
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-full border border-boto-champagne/40 flex items-center justify-center">
+                        <i class="fa-solid fa-star text-boto-champagne text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-[0.15em]">Calidad</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-light max-w-xs">
+                        Cada instalación es ejecutada con los más altos estándares técnicos, usando equipos y materiales de primera línea.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-full border border-boto-champagne/40 flex items-center justify-center">
+                        <i class="fa-solid fa-handshake text-boto-champagne text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-[0.15em]">Compromiso</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-light max-w-xs">
+                        Nos involucramos en cada proyecto como si fuera propio, cumpliendo plazos y respondiendo en cada etapa.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-full border border-boto-champagne/40 flex items-center justify-center">
+                        <i class="fa-solid fa-lightbulb text-boto-champagne text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-boto-azulOscuro text-sm uppercase tracking-[0.15em]">Innovación</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed font-light max-w-xs">
+                        Aplicamos tecnología de punta y nos actualizamos constantemente para ofrecer soluciones eficientes y duraderas.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <!-- =====================================================================
          CTA FINAL
          ===================================================================== -->
-    <section class="bg-[#1E2B4B] text-white py-16 px-4 text-center">
+    <section class="bg-boto-azulOscuro text-white py-20 px-6 text-center">
         <div class="max-w-2xl mx-auto space-y-5">
-            <h2 class="text-2xl md:text-3xl font-extrabold">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-wide">
                 Toda esa experiencia aplicada en tu proyecto.
             </h2>
-            <p class="text-gray-300 text-sm md:text-base">
+            <p class="text-gray-300 text-sm md:text-base font-light">
                 Contanos qué necesitás y te asesoramos sin cargo.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-                <a href="https://wa.me/5491150075234" target="_blank" rel="noopener noreferrer"
-                   class="bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-8 py-4 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-lg">
-                    <i class="fa-solid fa-paper-plane mr-2" aria-hidden="true"></i>
+                <a href="index.html#contacto"
+                   class="border-2 border-boto-champagne text-boto-champagne hover:bg-boto-champagne hover:text-boto-azulOscuro font-bold px-8 py-3.5 rounded-none text-[12px] tracking-widest uppercase transition-all duration-300">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
                     Contactanos ahora
                 </a>
                 <a href="servicios.html"
-                   class="border-2 border-white/70 hover:border-white text-white hover:bg-white/10 font-bold px-8 py-4 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5">
-                    <i class="fa-solid fa-list mr-2" aria-hidden="true"></i>
+                   class="border border-white/20 text-white/70 hover:border-white hover:text-white hover:bg-white/5 font-bold px-8 py-3.5 rounded-none text-[12px] tracking-widest uppercase transition-all duration-300">
+                    <i class="fa-solid fa-list mr-2"></i>
                     Ver nuestros servicios
                 </a>
             </div>
         </div>
     </section>
 
+</main>
 
-    <!-- =====================================================================
-         FOOTER
-         ===================================================================== -->
-    <footer class="bg-[#131B31] text-gray-400 text-center text-xs py-4">
-        &copy; <span id="year"></span> Grupo Boto — Todos los derechos reservados.
-    </footer>
 
-    <!-- WHATSAPP -->
-    <a href="https://wa.me/5491150075234" target="_blank" rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 group"
-       aria-label="Chatear por WhatsApp">
-        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
-        <span class="absolute right-16 bg-white text-gray-800 text-xs font-bold px-3 py-1.5 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-gray-100">
-            ¿Necesitás un presupuesto?
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="bg-boto-azulOscuro border-t border-white/5 text-gray-500 text-center text-[11px] tracking-wide py-5">
+    &copy; <span id="year"></span> Grupo Boto — Todos los derechos reservados.
+</footer>
+
+
+<!-- WhatsApp -->
+<a href="https://wa.me/5491150075234" target="_blank" rel="noopener noreferrer"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-boto-azulOscuro border border-boto-champagne/40 pl-4 pr-5 py-3 rounded-none shadow-2xl transition-all duration-300 hover:border-boto-champagne hover:-translate-y-0.5 group"
+   aria-label="Chatear por WhatsApp">
+    <div class="relative flex items-center justify-center">
+        <span class="animate-ping absolute inline-flex h-3 w-3 rounded-none bg-boto-champagne/30 opacity-75"></span>
+        <i class="fa-brands fa-whatsapp text-xl text-boto-champagne relative z-10 transition-transform duration-300 group-hover:scale-110"></i>
+    </div>
+    <div class="flex flex-col items-start leading-none">
+        <span class="text-[9px] font-bold tracking-widest uppercase text-boto-champagne/70 group-hover:text-boto-champagne transition-colors mb-0.5">
+            Contacto Directo
         </span>
-    </a>
+        <span class="text-[11px] font-bold tracking-wider text-white">
+            WhatsApp
+        </span>
+    </div>
+</a>
 
-    <script src="script.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    btn?.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+</script>
 </body>
 </html>

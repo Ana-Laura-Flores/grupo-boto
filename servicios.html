@@ -10,54 +10,92 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+       <!-- Tipografías: Inter únicamente para una impronta técnica y pulcra -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Config Tailwind -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            boto: {
+                                azul: "#1E2B4B",
+                                azulOscuro: "#131B31",
+                                naranja: "#D36145",
+                                champagne: "#C49A6C",
+                                grisFondo: "#F8FAFC",
+                                fondo: "#E8E8E8"
+                            }
+                        },
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                            titles: ['Inter', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- =====================================================================
-         HEADER
-         ===================================================================== -->
-    <header class="bg-[#1E2B4B] text-white sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" aria-label="Ir al inicio" class="flex items-center gap-3 group">
-                <img src="img/logo-grupo-boto.png" alt="Grupo Boto" class="h-10 object-contain">
-                <p
-                    class="font-extrabold tracking-wider text-lg text-white group-hover:text-[#D36145] transition-colors">
-                    GRUPO BOTO</p>
-            </a>
-            <nav aria-label="Navegación principal"
-                class="hidden md:flex items-center gap-8 text-sm font-bold tracking-wider">
-                <ul class="flex gap-8">
-                    <li><a href="index.html" class="hover:text-[#D36145] transition-colors">HOME</a></li>
-                    <li><a href="servicios.html" class="text-[#D36145] transition-colors">SERVICIOS</a></li>
-                    <li>
-                        <a href="proyectos.html" class="hover:text-[#D36145] transition-colors">
-                            PROYECTOS
-                        </a>
-                    </li>
-                    <li><a href="nosotros.html" class="hover:text-[#D36145] transition-colors">SOBRE NOSOTROS</a></li>
-                    <li><a href="index.html#contacto" class="hover:text-[#D36145] transition-colors">CONTÁCTANOS</a>
-                    </li>
+     <!-- =====================================================================
+             HEADER
+        ===================================================================== -->
+        <header class="bg-boto-azul text-white sticky top-0 z-50 shadow-lg border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                
+                <!-- Logo -->
+                <a href="#" aria-label="Ir al inicio" class="flex items-center gap-4 group">
+                    <img src="img/logo-grupo-boto.png" alt="Grupo Boto" class="h-10 object-contain" />
+                    <div>
+                        <p class="text-[10px] uppercase tracking-[0.35em] text-boto-champagne">
+                            Ingeniería HVAC
+                        </p>
+                        <p class="font-titles font-bold tracking-[0.15em] text-lg group-hover:text-boto-champagne transition uppercase">
+                            GRUPO BOTO
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Menú escritorio -->
+                <nav aria-label="Navegación principal" class="hidden md:flex items-center">
+                    <ul class="flex items-center gap-10 text-[13px] tracking-[0.15em] uppercase font-medium">
+                        <li><a href="index.html" class="hover:text-boto-champagne transition duration-300">Inicio</a></li>
+                        <li><a href="#servicios" class="text-boto-champagne transition duration-300">Servicios</a></li>
+                        <li><a href="proyectos.html" class="hover:text-boto-champagne transition duration-300">Proyectos</a></li>
+                        <li><a href="nosotros.html" class="hover:text-boto-champagne transition duration-300">Nosotros</a></li>
+                        <li><a href="#contacto" class="hover:text-boto-champagne transition duration-300">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Menú mobile -->
+                <button id="menu-btn" class="md:hidden text-xl" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Desplegable mobile -->
+            <nav id="mobile-menu" class="hidden md:hidden bg-boto-azulOscuro backdrop-blur-lg border-t border-white/10">
+                <ul class="flex flex-col text-center py-3">
+                    <li><a href="index.html" class="block py-4 hover:bg-white/5 transition">Inicio</a></li>
+                    <li><a href="#servicios" class="block py-4 text-boto-champagne transition">Servicios</a></li>
+                    <li><a href="proyectos.html" class="block py-4 hover:bg-white/5 transition">Proyectos</a></li>
+                    <li><a href="nosotros.html" class="block py-4 hover:bg-white/5 transition">Nosotros</a></li>
+                    <li><a href="#contacto" class="block py-4 hover:bg-white/5 transition">Contacto</a></li>
                 </ul>
             </nav>
-            <button id="menu-btn" class="md:hidden text-2xl focus:outline-none cursor-pointer" aria-label="Abrir menú"
-                aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-        <nav id="mobile-menu" aria-label="Navegación móvil"
-            class="hidden md:hidden bg-[#131B31] border-t border-white/10 transition-all duration-300">
-            <ul class="flex flex-col text-center font-bold tracking-wider divide-y divide-white/5 py-2">
-                <li><a href="index.html" class="block py-3 hover:bg-[#1E2B4B] transition-colors">HOME</a></li>
-                <li><a href="servicios.html" class="block py-3 text-[#D36145]">SERVICIOS</a></li>
-                <li><a href="proyectos.html" class="hover:text-[#D36145] transition-colors">PROYECTOS</a></li>
-                <li><a href="nosotros.html" class="block py-3 hover:bg-[#1E2B4B] transition-colors">SOBRE NOSOTROS</a>
-                </li>
-                <li><a href="index.html#contacto"
-                        class="block py-3 hover:bg-[#1E2B4B] transition-colors">CONTÁCTANOS</a></li>
-            </ul>
-        </nav>
-    </header>
+        </header>
+
 
 
     <!-- =====================================================================
@@ -65,564 +103,536 @@
          Imagen: img/banner-servicios.jpg — reemplazá por una foto de instalación.
          Si no tenés una específica, podés usar img/banner.jpg por ahora.
          ===================================================================== -->
-    <section class="relative min-h-[45vh] bg-cover bg-center flex items-center justify-center text-center px-4"
-        style="background-image: url('img/banner-servicios.jpg');">
+   <section class="relative min-h-[45vh] bg-cover bg-center flex items-center justify-center text-center px-4"
+    style="background-image: url('img/banner-servicios.jpg');">
 
-        <!-- Overlay oscuro -->
-        <div class="absolute inset-0 bg-[#0d1526]/78"></div>
+    <div class="absolute inset-0 bg-boto-azulOscuro/85"></div>
 
-        <div class="relative z-10 max-w-3xl mx-auto py-16 flex flex-col items-center gap-4">
-            <span
-                class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase border border-[#D36145]/50 px-4 py-1.5 rounded-full">
-                Lo que hacemos
-            </span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-                Nuestros Servicios
-            </h1>
-            <div class="w-12 h-1 bg-[#D36145] rounded" aria-hidden="true"></div>
-            <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xl">
-                Soluciones integrales de climatización, ventilación y refrigeración para cada tipo de proyecto.
-            </p>
-            <!-- Breadcrumb -->
-            <!-- <p class="text-gray-400 text-xs mt-2">
-                <a href="index.html" class="hover:text-white transition-colors">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-white">Servicios</span>
-            </p> -->
-        </div>
-    </section>
+    <div class="relative z-10 max-w-3xl mx-auto py-16 flex flex-col items-center gap-4">
+        <span class="text-boto-champagne text-[10px] font-bold tracking-[0.35em] uppercase border border-boto-champagne/30 px-4 py-1.5 rounded-full bg-boto-azulOscuro/40 backdrop-blur-sm">
+            Lo que hacemos
+        </span>
+        
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Nuestros Servicios
+        </h1>
+        
+        <div class="w-12 h-[3px] bg-boto-champagne rounded" aria-hidden="true"></div>
+        
+        <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xl font-light">
+            Soluciones integrales de climatización, ventilación y refrigeración para cada tipo de proyecto.
+        </p>
+     
+    </div>
+</section>
 
 
     <!-- =====================================================================
          ÍNDICE RÁPIDO (anclas)
          ===================================================================== -->
-    <div class="bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm overflow-x-auto">
-        <div class="max-w-6xl mx-auto px-4 flex gap-1 py-2 text-xs font-bold tracking-wider whitespace-nowrap">
-            <a href="#aire"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Aire
-                Acondicionado</a>
-            <a href="#camaras"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Cámaras de
-                Frío</a>
-            <a href="#ventilacion"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Ventilación</a>
-            <a href="#presurizacion"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Presurización</a>
-            <a href="#mantenimiento"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Mantenimiento</a>
-            <a href="#integrales"
-                class="px-3 py-2 rounded hover:bg-[#1E2B4B] hover:text-white transition-colors text-gray-600">Instalaciones
-                Integrales</a>
-        </div>
+  <!-- =====================================================================
+     ÍNDICE RÁPIDO (Minimalista, Premium & Champagne)
+     ===================================================================== -->
+<div class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-[72px] z-40 shadow-xs overflow-x-auto scrollbar-none">
+    <div class="max-w-5xl mx-auto px-6 flex justify-start md:justify-center gap-8 py-4 text-[11px] font-medium tracking-[0.2em] whitespace-nowrap uppercase">
+        
+        <!-- Aire Acondicionado -->
+        <a href="#aire"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Aire Acondicionado
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Cámaras de Frío -->
+        <a href="#camaras"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Cámaras de Frío
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Ventilación -->
+        <a href="#ventilacion"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Ventilación
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Presurización -->
+        <a href="#presurizacion"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Presurización
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Mantenimiento -->
+        <a href="#mantenimiento"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Mantenimiento
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <!-- Instalaciones Integrales -->
+        <a href="#integrales"
+            class="relative pb-1 text-gray-400 hover:text-boto-azulOscuro transition-colors duration-300 group">
+            Instalaciones Integrales
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-boto-champagne transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        
     </div>
+</div>
 
 
-    <!-- =====================================================================
-         SERVICIOS
-         Patrón alternado: imagen/ícono + contenido — par: texto izq / impar: texto der
-         ===================================================================== -->
-    <main class="max-w-6xl mx-auto px-4 py-16 space-y-24">
+   <!-- =====================================================================
+     SERVICIOS
+     Estructura Recta, Título Superior Esmerilado sobre la Imagen
+     ===================================================================== -->
+<main class="bg-boto-fondo mx-auto px-6 py-16 space-y-16">
 
+    <article id="aire" class="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-8 scroll-mt-36">
+        
+        <div class="w-full md:w-[38%] relative min-h-[260px] md:h-auto overflow-hidden shadow-sm rounded-sm">
+            <img src="img/servicio-aire.jpg" alt="Instalación de aire acondicionado" loading="lazy"
+                class="w-full h-full object-cover">
+        </div>
 
-        <!-- 1. AIRE ACONDICIONADO -->
-        <article id="aire" class="flex flex-col md:flex-row items-start gap-10 scroll-mt-36">
+        <div class="w-full md:w-[62%] flex flex-col justify-between space-y-5 py-1">
+            <div>
+                <span class="text-boto-champagne text-[10px] font-bold tracking-widest uppercase block mb-1">Sistemas Centrales</span>
+                <h2 class="text-boto-azulOscuro font-extrabold text-2xl tracking-tight uppercase leading-tight mb-4">
+                    Instalación de Aire Acondicionado
+                </h2>
 
-            <!-- Imagen -->
-            <div class="w-full md:w-2/5 flex-shrink-0">
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[220px]">
-                    <img src="img/servicio-aire.jpg" alt="Instalación de aire acondicionado" loading="lazy"
-                        class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1526]/85 via-[#0d1526]/10 to-transparent">
-                    </div>
-                    <h2 class="absolute bottom-5 left-5 right-5 text-white font-extrabold text-xl tracking-wide">
-                        Instalación de<br>Aire Acondicionado
-                    </h2>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-2.5">¿Qué incluye?</h3>
+                <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Instalación de equipos split y multisplit
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Sistemas VRF para obras
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Colocación de unidades interiores y exteriores
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Tendido de cañerías y cableado
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Puesta en marcha y verificación
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-1.5">¿Dónde trabajamos?</h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">Viviendas, oficinas, locales comerciales y desarrollos inmobiliarios.</p>
+            </div>
+
+            <div class="bg-boto-grisFondo border-l-2 border-boto-azul p-5">
+                <h4 class="text-boto-azulOscuro font-bold text-xs uppercase tracking-wider mb-2">¿Por qué elegirnos?</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-xs text-gray-600 font-light">
+                    <span>&bull; +30 años de experiencia</span>
+                    <span>&bull; Instalaciones seguras y eficientes</span>
+                    <span>&bull; Cumplimiento de plazos de obra</span>
+                    <span>&bull; Asesoramiento personalizado</span>
                 </div>
             </div>
 
-            <!-- Contenido -->
-            <div class="w-full md:w-3/5 space-y-6">
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Qué incluye?</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Instalación de
-                            equipos split y multisplit</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Sistemas VRF para
-                            obras</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Colocación de
-                            unidades interiores y exteriores</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Tendido de cañerías y
-                            cableado</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Puesta en marcha y
-                            verificación</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Dónde trabajamos?</h3>
-                    <p class="text-sm text-gray-600">Viviendas, oficinas, locales comerciales y desarrollos
-                        inmobiliarios.</p>
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <h3 class="text-[#1E2B4B] font-bold text-xs uppercase tracking-widest mb-3">¿Por qué elegirnos?</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> +30 años de experiencia</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Instalaciones seguras y
-                            eficientes</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Cumplimiento de plazos de
-                            obra</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Asesoramiento técnico
-                            personalizado</span>
-                    </div>
-                </div>
-
+            <div class="pt-1">
                 <a href="index.html#contacto"
-                    class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-md">
+                    class="inline-block bg-boto-azul hover:bg-boto-azulOscuro text-white text-xs font-semibold tracking-widest uppercase px-5 py-3 transition-colors duration-300">
                     Pedí un presupuesto
                 </a>
             </div>
-        </article>
+        </div>
+    </article>
 
-        <hr class="border-gray-200">
+    <hr class="border-gray-100 max-w-4xl mx-auto">
 
-        <!-- 2. CÁMARAS DE FRÍO -->
-        <article id="camaras" class="flex flex-col md:flex-row-reverse items-start gap-10 scroll-mt-36">
+    <article id="camaras" class="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-stretch gap-8 scroll-mt-36">
+        
+        <div class="w-full md:w-[38%] relative min-h-[260px] md:h-auto overflow-hidden shadow-sm rounded-sm">
+            <img src="img/servicio-camaras.jpg" alt="Cámaras de frío para gastronomía y comercio" loading="lazy"
+                class="w-full h-full object-cover">
+        </div>
 
-            <div class="w-full md:w-2/5 flex-shrink-0">
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[220px]">
-                    <img src="img/servicio-camaras.jpg" alt="Cámaras de frío para gastronomía y comercio" loading="lazy"
-                        class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1526]/85 via-[#0d1526]/10 to-transparent">
-                    </div>
-                    <h2 class="absolute bottom-5 left-5 right-5 text-white font-extrabold text-xl tracking-wide">
-                        Cámaras de Frío
-                    </h2>
+        <div class="w-full md:w-[62%] flex flex-col justify-between space-y-5 py-1">
+            <div>
+                <span class="text-boto-champagne text-[10px] font-bold tracking-widest uppercase block mb-1">Logística & Comercio</span>
+                <h2 class="text-boto-azulOscuro font-extrabold text-2xl tracking-tight uppercase leading-tight mb-4">
+                    Cámaras de Frío
+                </h2>
+
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-2.5">¿Qué incluye?</h3>
+                <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Diseño de cámaras de frío industriales
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Instalación de equipos frigoríficos eficientes
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Montaje de paneles modulares y aislamiento
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Sistemas automatizados de control de temperatura
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Puesta en marcha y testeo de carga
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-1.5">¿Dónde trabajamos?</h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">Restaurantes, supermercados, depósitos y comercios gastronómicos.</p>
+            </div>
+
+            <div class="bg-boto-grisFondo border-l-2 border-boto-azul p-5">
+                <h4 class="text-boto-azulOscuro font-bold text-xs uppercase tracking-wider mb-2">¿Por qué elegirnos?</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-xs text-gray-600 font-light">
+                    <span>&bull; Soluciones a medida</span>
+                    <span>&bull; Equipos de alto rendimiento</span>
+                    <span>&bull; Instalación integral homologada</span>
+                    <span>&bull; Respaldo técnico continuo</span>
                 </div>
             </div>
 
-            <div class="w-full md:w-3/5 space-y-6">
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Qué incluye?</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Diseño de cámaras de
-                            frío</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Instalación de
-                            equipos frigoríficos</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Montaje de paneles y
-                            aislamiento</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Sistemas de control
-                            de temperatura</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Puesta en marcha</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Dónde trabajamos?</h3>
-                    <p class="text-sm text-gray-600">Restaurantes, supermercados, depósitos y comercios gastronómicos.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <h3 class="text-[#1E2B4B] font-bold text-xs uppercase tracking-widest mb-3">¿Por qué elegirnos?</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Soluciones a medida</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Equipos eficientes</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Instalación completa</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Asesoramiento técnico</span>
-                    </div>
-                </div>
-
+            <div class="pt-1">
                 <a href="index.html#contacto"
-                    class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-md">
+                    class="inline-block bg-boto-azul hover:bg-boto-azulOscuro text-white text-xs font-semibold tracking-widest uppercase px-5 py-3 transition-colors duration-300">
                     Pedí un presupuesto
                 </a>
             </div>
-        </article>
+        </div>
+    </article>
 
-        <hr class="border-gray-200">
+    <hr class="border-gray-100 max-w-4xl mx-auto">
 
-        <!-- 3. VENTILACIÓN DE COCHERAS -->
-        <article id="ventilacion" class="flex flex-col md:flex-row items-start gap-10 scroll-mt-36">
+    <article id="ventilacion" class="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-8 scroll-mt-36">
+        
+        <div class="w-full md:w-[38%] relative min-h-[260px] md:h-auto overflow-hidden shadow-sm rounded-sm">
+            <img src="img/servicio-ventilacion.jpg" alt="Sistema de ventilación mecánica para cocheras" loading="lazy" 
+                class="w-full h-full object-cover">
+        </div>
 
-            <div class="w-full md:w-2/5 flex-shrink-0">
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[220px]">
-                    <img src="img/servicio-ventilacion.jpg" alt="Sistema de ventilación mecánica para cocheras"
-                        loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1526]/85 via-[#0d1526]/10 to-transparent">
-                    </div>
-                    <h2 class="absolute bottom-5 left-5 right-5 text-white font-extrabold text-xl tracking-wide">
-                        Ventilación<br>de Cocheras
-                    </h2>
+        <div class="w-full md:w-[62%] flex flex-col justify-between space-y-5 py-1">
+            <div>
+                <span class="text-boto-champagne text-[10px] font-bold tracking-widest uppercase block mb-1">Inyección & Extracción</span>
+                <h2 class="text-boto-azulOscuro font-extrabold text-2xl tracking-tight uppercase leading-tight mb-4">
+                    Ventilación de Cocheras
+                </h2>
+
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-2.5">¿Qué incluye?</h3>
+                <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Diseño de sistemas de ventilación mecánica asistida
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Instalación de extractores helicoidales, centrífugos y conductos
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Sistemas de renovación de aire y control de monóxido
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Integración con sensores automatizados de detección
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Pruebas finales de caudal y puesta en funcionamiento
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-1.5">¿Dónde trabajamos?</h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">Cocheras de edificios residenciales, estacionamientos comerciales y desarrollos inmobiliarios.</p>
+            </div>
+
+            <div class="bg-boto-grisFondo border-l-2 border-boto-azul p-5">
+                <h4 class="text-boto-azulOscuro font-bold text-xs uppercase tracking-wider mb-2">¿Por qué elegirnos?</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-xs text-gray-600 font-light">
+                    <span>&bull; Cumplimiento estricto de normativa vigente</span>
+                    <span>&bull; Soluciones eficientes y de alta seguridad</span>
+                    <span>&bull; Amplia trayectoria y experiencia en obras</span>
+                    <span>&bull; Sistemas e instalaciones duraderas</span>
                 </div>
             </div>
 
-            <div class="w-full md:w-3/5 space-y-6">
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Qué incluye?</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Diseño de sistemas de
-                            ventilación</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Instalación de
-                            extractores y conductos</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Sistemas de
-                            renovación de aire</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Integración con
-                            sensores (si aplica)</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Pruebas de
-                            funcionamiento</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Dónde trabajamos?</h3>
-                    <p class="text-sm text-gray-600">Cocheras de edificios, estacionamientos comerciales y desarrollos
-                        inmobiliarios.</p>
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <h3 class="text-[#1E2B4B] font-bold text-xs uppercase tracking-widest mb-3">¿Por qué elegirnos?</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Cumplimiento de normativa
-                            vigente</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Soluciones eficientes y
-                            seguras</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Experiencia en obras</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Instalaciones duraderas</span>
-                    </div>
-                </div>
-
+            <div class="pt-1">
                 <a href="index.html#contacto"
-                    class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-md">
+                    class="inline-block bg-boto-azul hover:bg-boto-azulOscuro text-white text-xs font-semibold tracking-widest uppercase px-5 py-3 transition-colors duration-300">
                     Pedí un presupuesto
                 </a>
             </div>
-        </article>
+        </div>
+    </article>
 
-        <hr class="border-gray-200">
+    <hr class="border-gray-100 max-w-4xl mx-auto">
 
-        <!-- 4. PRESURIZACIÓN DE ESCALERAS -->
-        <article id="presurizacion" class="flex flex-col md:flex-row-reverse items-start gap-10 scroll-mt-36">
+    <article id="presurizacion" class="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-stretch gap-8 scroll-mt-36">
+        
+        <div class="w-full md:w-[38%] relative min-h-[260px] md:h-auto overflow-hidden shadow-sm rounded-sm">
+            <img src="img/servicio-presurizacion.jpg" alt="Presurización de escaleras en edificios" loading="lazy" 
+                class="w-full h-full object-cover">
+        </div>
 
-            <div class="w-full md:w-2/5 flex-shrink-0">
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[220px]">
-                    <img src="img/servicio-presurizacion.jpg" alt="Presurización de escaleras en edificios"
-                        loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1526]/85 via-[#0d1526]/10 to-transparent">
-                    </div>
-                    <h2 class="absolute bottom-5 left-5 right-5 text-white font-extrabold text-xl tracking-wide">
-                        Presurización<br>de Escaleras
-                    </h2>
+        <div class="w-full md:w-[62%] flex flex-col justify-between space-y-5 py-1">
+            <div>
+                <span class="text-boto-champagne text-[10px] font-bold tracking-widest uppercase block mb-1">Seguridad contra Incendios</span>
+                <h2 class="text-boto-azulOscuro font-extrabold text-2xl tracking-tight uppercase leading-tight mb-4">
+                    Presurización de Escaleras
+                </h2>
+
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-2.5">¿Qué incluye?</h3>
+                <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Instalación integral de sistemas de presurización de vías de escape
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Montaje y colocación de ventiladores centrífugos y conductos técnicos
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Integración con sistemas centrales de seguridad y detección de humo
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Ajuste fino de presión diferencial y ensayos de estanqueidad
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Puesta en marcha final homologada para habilitaciones
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-1.5">¿Dónde trabajamos?</h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">Edificios residenciales en altura, complejos de oficinas y desarrollos en construcción.</p>
+            </div>
+
+            <div class="bg-boto-grisFondo border-l-2 border-boto-azul p-5">
+                <h4 class="text-boto-azulOscuro font-bold text-xs uppercase tracking-wider mb-2">¿Por qué elegirnos?</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-xs text-gray-600 font-light">
+                    <span>&bull; Cumplimiento estricto de normativas de seguridad</span>
+                    <span>&bull; Equipos de alta confiabilidad y respuesta</span>
+                    <span>&bull; Instalación e ingeniería profesional homologada</span>
+                    <span>&bull; Respaldo técnico calificado en obras</span>
                 </div>
             </div>
 
-            <div class="w-full md:w-3/5 space-y-6">
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Qué incluye?</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Instalación de
-                            sistemas de presurización</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Colocación de
-                            ventiladores y conductos</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Integración con
-                            sistemas de seguridad</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Ajuste de presión y
-                            pruebas</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Puesta en marcha</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Dónde trabajamos?</h3>
-                    <p class="text-sm text-gray-600">Edificios residenciales, oficinas y desarrollos en construcción.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <h3 class="text-[#1E2B4B] font-bold text-xs uppercase tracking-widest mb-3">¿Por qué elegirnos?</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Cumplimiento de normativas</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Equipos confiables</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Instalación profesional</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Experiencia en obras</span>
-                    </div>
-                </div>
-
+            <div class="pt-1">
                 <a href="index.html#contacto"
-                    class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-md">
+                    class="inline-block bg-boto-azul hover:bg-boto-azulOscuro text-white text-xs font-semibold tracking-widest uppercase px-5 py-3 transition-colors duration-300">
                     Pedí un presupuesto
                 </a>
             </div>
-        </article>
+        </div>
+    </article>
 
-        <hr class="border-gray-200">
+    <hr class="border-gray-100 max-w-4xl mx-auto">
 
-        <!-- 5. MANTENIMIENTO -->
-        <article id="mantenimiento" class="flex flex-col md:flex-row items-start gap-10 scroll-mt-36">
+    <article id="mantenimiento" class="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-8 scroll-mt-36">
+        
+        <div class="w-full md:w-[38%] relative min-h-[260px] md:h-auto overflow-hidden shadow-sm rounded-sm">
+            <img src="img/servicio-mantenimiento.jpg" alt="Mantenimiento" loading="lazy" 
+                class="w-full h-full object-cover">
+        </div>
 
-            <div class="w-full md:w-2/5 flex-shrink-0">
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[220px]">
-                    <img src="img/servicio-mantenimiento.jpg" alt="Mantenimiento de equipos de climatización"
-                        loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1526]/85 via-[#0d1526]/10 to-transparent">
-                    </div>
-                    <h2 class="absolute bottom-5 left-5 right-5 text-white font-extrabold text-xl tracking-wide">
-                        Mantenimiento
-                    </h2>
+        <div class="w-full md:w-[62%] flex flex-col justify-between space-y-5 py-1">
+            <div>
+                <span class="text-boto-champagne text-[10px] font-bold tracking-widest uppercase block mb-1">Preventivo & Correctivo</span>
+                <h2 class="text-boto-azulOscuro font-extrabold text-2xl tracking-tight uppercase leading-tight mb-4">
+                    Mantenimiento de Sistemas
+                </h2>
+
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-2.5">¿Qué incluye?</h3>
+                <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Diagnóstico integral de fallas y rendimiento energético.
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Planes de mantenimiento preventivo programado.
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Limpieza técnica profunda de equipos, filtros y conductos.
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Reemplazo de componentes críticos y recarga de fluidos.
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-1.5">¿Dónde trabajamos?</h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">Viviendas particulares, oficinas corporativas, locales comerciales y edificios consorciales.</p>
+            </div>
+
+            <div class="bg-boto-grisFondo border-l-2 border-boto-azul p-5">
+                <h4 class="text-boto-azulOscuro font-bold text-xs uppercase tracking-wider mb-2">Estandar de Servicio</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-xs text-gray-600 font-light">
+                    <span>&bull; Respuesta rápida ante urgencias</span>
+                    <span>&bull; Soluciones de largo plazo</span>
+                    <span>&bull; Diagnóstico asistido por instrumental</span>
+                    <span>&bull; Absoluta confianza técnica</span>
                 </div>
             </div>
 
-            <div class="w-full md:w-3/5 space-y-6">
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Qué incluye?</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Diagnóstico de fallas
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Mantenimiento
-                            preventivo</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Limpieza de equipos y
-                            conductos</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Reemplazo de
-                            componentes</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Dónde trabajamos?</h3>
-                    <p class="text-sm text-gray-600">Viviendas, oficinas, locales comerciales y edificios.</p>
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <h3 class="text-[#1E2B4B] font-bold text-xs uppercase tracking-widest mb-3">¿Por qué elegirnos?</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Atención rápida</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Diagnóstico preciso</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Soluciones duraderas</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Servicio confiable</span>
-                    </div>
-                </div>
-
+            <div class="pt-1">
                 <a href="index.html#contacto"
-                    class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-md">
+                    class="inline-block bg-boto-azul hover:bg-boto-azulOscuro text-white text-xs font-semibold tracking-widest uppercase px-5 py-3 transition-colors duration-300">
+                    Solicitar Diagnóstico
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <hr class="border-gray-100 max-w-4xl mx-auto">
+
+    <article id="integrales" class="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-stretch gap-8 scroll-mt-36">
+        
+        <div class="w-full md:w-[38%] relative min-h-[260px] md:h-auto overflow-hidden shadow-sm rounded-sm">
+            <img src="img/servicio-integrales.jpg" alt="Instalaciones integrales de climatización para obras" loading="lazy" 
+                class="w-full h-full object-cover">
+        </div>
+
+        <div class="w-full md:w-[62%] flex flex-col justify-between space-y-5 py-1">
+            <div>
+                <span class="text-boto-champagne text-[10px] font-bold tracking-widest uppercase block mb-1">Ingeniería en Obras</span>
+                <h2 class="text-boto-azulOscuro font-extrabold text-2xl tracking-tight uppercase leading-tight mb-4">
+                    Instalaciones Integrales
+                </h2>
+
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-2.5">¿Qué incluye?</h3>
+                <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Desarrollo ejecutivo de proyectos de climatización a gran escala
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Instalación y montaje de sistemas termo-mecánicos complejos
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Coordinación técnica y logística directa con la dirección de obra
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Ejecución simultánea de ventilación, presurización y aire central
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-gray-600 font-light">
+                        <span class="text-boto-azul font-semibold">&mdash;</span> Puesta en marcha integral con entrega de planos conforme a obra
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-boto-champagne font-semibold text-xs uppercase tracking-wider mb-1.5">¿Dónde trabajamos?</h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">Grandes desarrollos inmobiliarios, edificios corporativos y obras comerciales de envergadura.</p>
+            </div>
+
+            <div class="bg-boto-grisFondo border-l-2 border-boto-azul p-5">
+                <h4 class="text-boto-azulOscuro font-bold text-xs uppercase tracking-wider mb-2">¿Por qué elegirnos?</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-xs text-gray-600 font-light">
+                    <span>&bull; Vasta experiencia y solidez en proyectos de obra</span>
+                    <span>&bull; Soluciones corporativas integrales llave en mano</span>
+                    <span>&bull; Riguroso cumplimiento de los plazos constructivos</span>
+                    <span>&bull; Trabajo coordinado y sinérgico con otros rubros</span>
+                </div>
+            </div>
+
+            <div class="pt-1">
+                <a href="index.html#contacto"
+                    class="inline-block bg-boto-azul hover:bg-boto-azulOscuro text-white text-xs font-semibold tracking-widest uppercase px-5 py-3 transition-colors duration-300">
                     Pedí un presupuesto
                 </a>
             </div>
-        </article>
-
-        <hr class="border-gray-200">
-
-        <!-- 6. INSTALACIONES INTEGRALES -->
-        <article id="integrales" class="flex flex-col md:flex-row-reverse items-start gap-10 scroll-mt-36">
-
-            <div class="w-full md:w-2/5 flex-shrink-0">
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[220px]">
-                    <img src="img/servicio-integrales.jpg" alt="Instalaciones integrales de climatización para obras"
-                        loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d1526]/85 via-[#0d1526]/10 to-transparent">
-                    </div>
-                    <h2 class="absolute bottom-5 left-5 right-5 text-white font-extrabold text-xl tracking-wide">
-                        Instalaciones<br>Integrales
-                    </h2>
-                </div>
-            </div>
-
-            <div class="w-full md:w-3/5 space-y-6">
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Qué incluye?</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Desarrollo de
-                            proyectos de climatización</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Instalación de
-                            sistemas completos</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Coordinación con obra
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Ejecución de
-                            ventilación y presurización</li>
-                        <li class="flex items-start gap-2 text-sm text-gray-600"><i
-                                class="fa-solid fa-check text-[#1E2B4B] mt-0.5 flex-shrink-0"></i> Puesta en marcha
-                            integral</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-[#D36145] font-bold text-xs uppercase tracking-widest mb-3">¿Dónde trabajamos?</h3>
-                    <p class="text-sm text-gray-600">Desarrollos inmobiliarios, edificios y obras comerciales.</p>
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                    <h3 class="text-[#1E2B4B] font-bold text-xs uppercase tracking-widest mb-3">¿Por qué elegirnos?</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Experiencia en obras</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Soluciones integrales</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Cumplimiento de tiempos</span>
-                        <span class="flex items-center gap-2 text-xs text-gray-600"><i
-                                class="fa-solid fa-circle-check text-[#D36145]"></i> Trabajo coordinado con otros
-                            rubros</span>
-                    </div>
-                </div>
-
-                <a href="index.html#contacto"
-                    class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-md">
-                    Pedí un presupuesto
-                </a>
-            </div>
-        </article>
-        <!-- =====================================================================
-         GALERÍA DE TRABAJOS
-         Grilla cuadrada con efecto lightbox simple al hacer click.
-         Reemplazá los src por tus fotos reales (formato cuadrado recomendado).
-         ===================================================================== -->
-        <section class="bg-gray-100 py-2 px-4">
+        </div>
+    </article>
+</main>
+      <!-- =====================================================================
+             GALERÍA DE TRABAJOS
+             Grilla cuadrada minimalista con efecto lightbox integrado.
+             ===================================================================== -->
+        <section class="bg-boto-grisFondo py-16 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
-                    <p class="text-[#D36145] text-xs font-bold tracking-[0.3em] uppercase mb-2">Nuestro trabajo</p>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E2B4B]">Galería de Instalaciones</h2>
+                    <p class="text-boto-champagne text-xs font-bold tracking-[0.3em] uppercase mb-2">Nuestro trabajo</p>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-boto-azulOscuro tracking-tight uppercase">Galería de Instalaciones</h2>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
+                    <!-- Foto 1 -->
                     <button onclick="abrirLightbox('img/galeria-01.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-01.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 2 -->
                     <button onclick="abrirLightbox('img/galeria-02.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-02.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 3 -->
                     <button onclick="abrirLightbox('img/galeria-03.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-03.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 4 -->
                     <button onclick="abrirLightbox('img/galeria-04.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-04.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 5 -->
                     <button onclick="abrirLightbox('img/galeria-05.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-05.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 6 -->
                     <button onclick="abrirLightbox('img/galeria-06.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-06.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 7 -->
                     <button onclick="abrirLightbox('img/galeria-07.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-07.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
+                    <!-- Foto 8 -->
                     <button onclick="abrirLightbox('img/galeria-08.jpg')"
-                        class="group relative aspect-square overflow-hidden rounded-xl shadow-sm cursor-pointer">
+                        class="group relative aspect-square overflow-hidden rounded-none cursor-pointer focus:outline-none">
                         <img src="img/galeria-08.jpg" alt="Instalación realizada por Grupo Boto" loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-[#0d1526]/0 group-hover:bg-[#0d1526]/30 transition-colors flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                                aria-hidden="true"></i>
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[20%] group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-boto-azulOscuro/0 group-hover:bg-boto-azulOscuro/40 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></i>
                         </div>
                     </button>
 
@@ -630,53 +640,58 @@
             </div>
         </section>
 
-        <!-- Lightbox: overlay de pantalla completa para ver la imagen en grande -->
+        <!-- Lightbox -->
         <div id="lightbox" onclick="cerrarLightbox()"
-            class="hidden fixed inset-0 bg-black/90 z-[60] flex items-center justify-center px-4 cursor-zoom-out">
+            class="hidden fixed inset-0 bg-boto-azulOscuro/95 z-[60] flex items-center justify-center px-4 cursor-zoom-out">
             <button onclick="cerrarLightbox()" aria-label="Cerrar"
-                class="absolute top-6 right-6 text-white text-3xl hover:text-[#D36145] transition-colors">
+                class="absolute top-6 right-6 text-white text-3xl hover:text-boto-champagne transition-colors focus:outline-none">
                 <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
-            <img id="lightbox-img" src="" alt="Vista ampliada" class="max-h-[85vh] max-w-full rounded-lg shadow-2xl">
+            <img id="lightbox-img" src="" alt="Vista ampliada" class="max-h-[85vh] max-w-full rounded-none">
         </div>
-
 
     </main>
 
 
+    
     <!-- =====================================================================
          CTA FINAL
          ===================================================================== -->
-    <section class="bg-[#1E2B4B] text-white py-16 px-4 text-center">
+    <section class="bg-boto-azulOscuro text-white py-20 px-6 text-center">
         <div class="max-w-2xl mx-auto space-y-5">
-            <h2 class="text-2xl md:text-3xl font-extrabold">¿Tenés un proyecto en mente?</h2>
-            <p class="text-gray-300 text-sm md:text-base">Contanos qué necesitás y te asesoramos sin cargo.</p>
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">¿Tenés un proyecto en mente?</h2>
+            <p class="text-gray-300 text-sm md:text-base font-light">Contanos qué necesitás y te asesoramos sin cargo.</p>
             <a href="index.html#contacto"
-                class="inline-block bg-[#D36145] hover:bg-[#b65138] text-white font-bold px-10 py-4 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 shadow-lg">
+                class="inline-block border-2 border-boto-champagne text-boto-champagne hover:bg-boto-champagne hover:text-boto-azulOscuro font-bold px-10 py-3.5 rounded-none text-[13px] tracking-widest uppercase transition-all duration-300">
                 <i class="fa-solid fa-paper-plane mr-2" aria-hidden="true"></i>
                 Contactanos ahora
             </a>
         </div>
     </section>
-
-
+ 
+ 
     <!-- =====================================================================
          FOOTER
          ===================================================================== -->
-    <footer class="bg-[#131B31] text-gray-400 text-center text-xs py-4">
+    <footer class="bg-boto-azulOscuro border-t border-white/5 text-gray-500 text-center text-[11px] tracking-wide py-5">
         &copy; <span id="year"></span> Grupo Boto — Todos los derechos reservados.
     </footer>
 
-    <!-- WHATSAPP -->
-    <a href="https://wa.me/5491150075234" target="_blank" rel="noopener noreferrer"
-        class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 group"
-        aria-label="Chatear por WhatsApp">
-        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
-        <span
-            class="absolute right-16 bg-white text-gray-800 text-xs font-bold px-3 py-1.5 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-gray-100">
-            ¿Necesitás un presupuesto?
-        </span>
-    </a>
+    <!-- Botón flotante WhatsApp -->
+        <a href="https://wa.me/5491150075234" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-boto-azulOscuro border border-boto-champagne/40 pl-4 pr-5 py-3 rounded-none shadow-2xl transition-all duration-300 hover:border-boto-champagne hover:-translate-y-0.5 group" aria-label="Chatear por WhatsApp">
+            <div class="relative flex items-center justify-center">
+                <span class="animate-ping absolute inline-flex h-3 w-3 rounded-none bg-boto-champagne/30 opacity-75"></span>
+                <i class="fa-brands fa-whatsapp text-xl text-boto-champagne relative z-10 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"></i>
+            </div>
+            <div class="flex flex-col items-start leading-none">
+                <span class="text-[9px] font-bold tracking-widest uppercase text-boto-champagne/70 group-hover:text-boto-champagne transition-colors mb-0.5">
+                    Contacto Directo
+                </span>
+                <span class="text-[11px] font-bold tracking-wider text-white">
+                    WhatsApp
+                </span>
+            </div>
+        </a>
 
     <script src="script.js"></script>
     <script>
